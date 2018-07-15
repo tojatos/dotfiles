@@ -18,6 +18,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'junegunn/fzf'
 " Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'pseewald/vim-anyfold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -125,3 +126,7 @@ nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
 " Enable snippet completion
 " let g:OmniSharp_want_snippet=1
 
+
+let anyfold_activate=1
+let anyfold_fold_comments=1
+set foldlevel=1
