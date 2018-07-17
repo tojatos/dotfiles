@@ -19,6 +19,7 @@ Plugin 'junegunn/fzf'
 " Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'pseewald/vim-anyfold'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
