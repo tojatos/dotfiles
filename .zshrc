@@ -111,3 +111,4 @@ export KEYTIMEOUT=1
 
 
 export PATH=$PATH:/home/tojatos/.gem/ruby/2.5.0/bin
+xcape -e 'Control_L=Escape' #remap capslock to escape
