@@ -47,8 +47,11 @@ set shiftwidth=2
 set wildmenu
 set noshowmode
 set smartcase
+set splitbelow
+set splitright
 " set noesckeys
 " inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+nnoremap Y y$
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
 nnoremap <Leader>j :FZF<Return>
