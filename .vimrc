@@ -139,3 +139,5 @@ colorscheme codedark
 let anyfold_activate=0
 let anyfold_fold_comments=1
 set foldlevel=1
+
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
