@@ -22,6 +22,9 @@ Plugin 'pseewald/vim-anyfold'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'francoiscabrol/ranger.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
