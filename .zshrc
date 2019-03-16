@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 export KEYTIMEOUT=1
 
 
-export PATH=$PATH:~/.gem/ruby/2.5.0/bin
-export PATH=~/.npm-global/bin:$PATH
-xcape -e 'Control_L=Escape' #remap capslock to escape
-xset -b #disable annyoing beeper
+#export PATH=$PATH:~/.gem/ruby/2.5.0/bin
+#export PATH=~/.npm-global/bin:$PATH
+#xcape -e 'Control_L=Escape' #remap capslock to escape
+#xset -b #disable annyoing beeper
