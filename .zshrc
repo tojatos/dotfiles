@@ -8,6 +8,9 @@ ZSH="/usr/share/oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="tosAgnoster"
+if [ `tput colors` != "256" ]; then
+  ZSH_THEME="robbyrussell"
+fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -114,3 +117,4 @@ export KEYTIMEOUT=1
 #export PATH=~/.npm-global/bin:$PATH
 #xcape -e 'Control_L=Escape' #remap capslock to escape
 #xset -b #disable annyoing beeper
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
