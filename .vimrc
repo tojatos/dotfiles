@@ -25,6 +25,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'lervag/vimtex'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -70,6 +71,11 @@ set foldlevel=1
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 " Disable arrow movement, resize splits instead.
 nnoremap  <Up>     :resize    +2<CR>
 nnoremap  <Down>   :resize    -2<CR>
