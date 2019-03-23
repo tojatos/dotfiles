@@ -118,3 +118,4 @@ export KEYTIMEOUT=1
 #xcape -e 'Control_L=Escape' #remap capslock to escape
 #xset -b #disable annyoing beeper
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
