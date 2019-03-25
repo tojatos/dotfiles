@@ -30,6 +30,7 @@ set splitright
 nnoremap Y y$
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 nnoremap <Leader>j :FZF<Return>
 "nnoremap <Leader>l :w<Return>:silent :!pdflatex %<Return><C-L>
 autocmd FileType html,php nnoremap <Leader>ht i<!DOCTYPE html><Return><html><Return><head><Return><title></title><Return></head><Return></html><Esc>kk$FeT>i
@@ -48,8 +49,8 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+set conceallevel=2
+let g:tex_conceal='abdmgs'
 
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -59,3 +60,4 @@ nnoremap  <Up>     :resize    +2<CR>
 nnoremap  <Down>   :resize    -2<CR>
 nnoremap  <Left>   :vertical  resize  +2<CR>
 nnoremap  <Right>  :vertical  resize  -2<CR>
+set clipboard=unnamed
