@@ -55,6 +55,7 @@ let g:tex_conceal='abdmgs'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " Disable arrow movement, resize splits instead.
 nnoremap  <Up>     :resize    +2<CR>
 nnoremap  <Down>   :resize    -2<CR>

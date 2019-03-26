@@ -65,7 +65,6 @@ plugins=(
   git
   colored-man-pages
   history
-  vundle
   vi-mode
   web-search
   archlinux
