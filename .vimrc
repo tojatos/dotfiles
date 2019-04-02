@@ -4,7 +4,7 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dispatch'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'pseewald/vim-anyfold'
 Plug 'jiangmiao/auto-pairs'
 Plug 'francoiscabrol/ranger.vim'
@@ -44,7 +44,7 @@ let anyfold_activate=0
 let anyfold_fold_comments=1
 set foldlevel=1
 
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
+"let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -56,6 +56,7 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+
 " Disable arrow movement, resize splits instead.
 nnoremap  <Up>     :resize    +2<CR>
 nnoremap  <Down>   :resize    -2<CR>
