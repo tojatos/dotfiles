@@ -1,13 +1,13 @@
 # i3 config file (v4)
 set $mod Mod4
 
-#font xft:DejaVu Sans Mono for Powerline-10 14
+font xft:DejaVu Sans Mono for Powerline 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -114,6 +114,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+b exec "firefox-developer-edition"
+bindsym $mod+i exec "betterlockscreen --lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

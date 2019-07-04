@@ -14,6 +14,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
+Plug 'yuttie/comfortable-motion.vim'
 call plug#end()
 set number
 
