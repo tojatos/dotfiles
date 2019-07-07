@@ -17,6 +17,7 @@ Plug 'sirver/ultisnips'
 "Plug 'Rip-Rip/clang_complete'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'yuttie/comfortable-motion.vim'
 call plug#end()
 set number
 
