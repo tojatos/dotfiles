@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "DejaVu Sans Mono for Powerline:pixelsize=14:antialias=true:autohint=true";
-static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -104,8 +104,8 @@ static const char *colorname[] = {
         [255] = 0,
 
             /* more colors can be added after 255 to use with DefaultXX */
-        "#3f3f3f",
-        "#dcdccc",
+        "#1c1c1c",
+        "#ffffff",
         "#aaaaaa",
             
 };
