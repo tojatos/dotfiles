@@ -4,7 +4,10 @@ alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --no-playlist"
 alias v="vim -p"
 alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
+alias glsi="git ls-files -i --exclude-from=.gitignore"
+
 alias yocto-dev='ssh 10.181.195.118'
 alias yocto-dev2='ssh 10.181.199.242'
 alias yocto-dev3='ssh wrlinb181.emea.nsn-net.net'
-alias glsi="git ls-files -i --exclude-from=.gitignore"
+alias yocto-dev4='ssh 10.181.200.222'
+alias yocto-dev5='ssh 10.181.200.113'

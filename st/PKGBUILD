@@ -50,7 +50,7 @@ package() {
   rm "${pkgdir}/usr/share/terminfo/s/st" "${pkgdir}/usr/share/terminfo/s/st-256color" 
 }
 md5sums=('92135aecdba29300bb2e274a55f5b71e'
-         '81c696f52543e7ad7e065549e60d6680'
+         'a85d3c245ce42b2d0784ccb41a74df85'
          '9effc30b79e07c3dc9d2a1e41b9dd6d1'
          '7b6f4a1efe7987b8f5554b4ec16082f9'
          '244efdbbd3dc00e8fe8d607fc5ed004b'

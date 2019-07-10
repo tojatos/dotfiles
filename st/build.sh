@@ -1,1 +1,1 @@
-makepkg -fsi --skipinteg
+updpkgsums && makepkg -fsi
