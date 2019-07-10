@@ -156,8 +156,15 @@ exec_always --no-startup-id setxkbmap -layout pl -option caps:escape
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 600 'betterlockscreen --lock' ''
 
+#solid wallpaper
+exec --no-startup-id xsetroot -solid "#1e1e1e"
+
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+
+gaps inner 10
+gaps outer 0
+smart_gaps on
