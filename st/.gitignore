@@ -5,4 +5,4 @@
 !.gitignore
 !config.h
 !PKGBUILD
-!build.sh
+!install.sh
