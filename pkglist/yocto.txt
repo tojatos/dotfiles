@@ -1,0 +1,13 @@
+git
+diffstat
+unzip
+texinfo
+python
+chrpath
+wget
+xterm
+sdl
+rpcsvc-proto
+socat
+cpio
+multilib-devel
