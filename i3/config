@@ -159,6 +159,9 @@ exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer no
 #solid wallpaper
 exec --no-startup-id xsetroot -solid "#1e1e1e"
 
+#notifier
+exec --no-startup-id dunst
+
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+

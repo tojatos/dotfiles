@@ -27,3 +27,4 @@ zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
 xorg-xsetroot
+dunst
