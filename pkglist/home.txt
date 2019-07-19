@@ -1,3 +1,4 @@
 qbittorrent
 youtube-dl
 oh-my-zsh-git
+mpv
