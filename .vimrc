@@ -68,5 +68,3 @@ nnoremap  <Left>   :vertical  resize  +2<CR>
 nnoremap  <Right>  :vertical  resize  -2<CR>
 set clipboard=unnamed,unnamedplus
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
-
-set mouse=a

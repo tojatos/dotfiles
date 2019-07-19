@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "DejaVu Sans Mono for Powerline:pixelsize=14:antialias=true:autohint=true";
+static char *font = "DejaVuSansMono Nerd Font Mono:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
@@ -82,10 +82,9 @@ char *termname = "xterm-256color";
  */
 unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
     "#3f3f3f",
-    "#cc9393",
+    "#cc342b",
     "#7f9f7f",
     "#d0bf8f",
     "#6ca0a3",

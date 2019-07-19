@@ -100,8 +100,6 @@ plugins=(
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.aliases
-
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
@@ -116,8 +114,15 @@ export KEYTIMEOUT=1
 #export PATH=~/.npm-global/bin:$PATH
 #xcape -e 'Control_L=Escape' #remap capslock to escape
 #xset -b #disable annyoing beeper
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 export EDITOR=vim
 
+FILES_TO_SOURCE=(
+  $HOME/.aliases
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+)
+
+for file in $FILES_TO_SOURCE
+do [[ -f $file ]] && source $file
+done
