@@ -28,3 +28,7 @@ zsh-completions
 zsh-syntax-highlighting
 xorg-xsetroot
 dunst
+pulseaudio
+pulseaudio-alsa
+alsa-utils
+wget
