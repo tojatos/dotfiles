@@ -212,9 +212,15 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+# Am I in a ssh session?
+prompt_ssh() {
+  ([[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]) && prompt_segment black yellow "$(hostname)"
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_ssh
   prompt_virtualenv
 #  prompt_context
   prompt_dir
