@@ -1,0 +1,31 @@
+set nocompatible
+call plug#begin('~/.vim/plugged')
+Plug 'tomasiser/vim-code-dark'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+set number
+
+syntax on
+set tabstop=4
+set incsearch
+set hlsearch
+set shiftwidth=2
+set wildmenu
+set noshowmode
+set smartcase
+set splitbelow
+set splitright
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+nnoremap <Leader>j :FZF<Return>
+
+colorscheme codedark
+
+nnoremap  <Up>     :resize    +2<CR>
+nnoremap  <Down>   :resize    -2<CR>
+nnoremap  <Left>   :vertical  resize  +2<CR>
+nnoremap  <Right>  :vertical  resize  -2<CR>
+set clipboard=unnamed,unnamedplus
+highlight EndOfBuffer ctermfg=bg ctermbg=bg
