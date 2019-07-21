@@ -121,6 +121,8 @@ FILES_TO_SOURCE=(
   $HOME/.aliases
   /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 )
 
 for file in $FILES_TO_SOURCE
