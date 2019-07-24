@@ -128,3 +128,5 @@ FILES_TO_SOURCE=(
 for file in $FILES_TO_SOURCE
 do [[ -f $file ]] && source $file
 done
+
+true
