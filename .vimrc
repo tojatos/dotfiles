@@ -18,6 +18,7 @@ Plug 'sirver/ultisnips'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 "Plug 'yuttie/comfortable-motion.vim'
+Plug 'chrisbra/Colorizer'
 call plug#end()
 set number
 

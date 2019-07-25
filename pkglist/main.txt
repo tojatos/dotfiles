@@ -32,3 +32,4 @@ pulseaudio
 pulseaudio-alsa
 alsa-utils
 wget
+nerd-fonts-dejavu-complete
