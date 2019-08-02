@@ -4,7 +4,6 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dispatch'
-"Plug 'scrooloose/syntastic'
 Plug 'pseewald/vim-anyfold'
 Plug 'jiangmiao/auto-pairs'
 Plug 'francoiscabrol/ranger.vim'
@@ -14,11 +13,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
-"Plug 'Rip-Rip/clang_complete'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-"Plug 'yuttie/comfortable-motion.vim'
 Plug 'chrisbra/Colorizer'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 set number
 
@@ -67,5 +65,15 @@ nnoremap  <Up>     :resize    +2<CR>
 nnoremap  <Down>   :resize    -2<CR>
 nnoremap  <Left>   :vertical  resize  +2<CR>
 nnoremap  <Right>  :vertical  resize  -2<CR>
+
+" Map yank buffer to system clipboards
 set clipboard=unnamed,unnamedplus
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
+
+let g:ale_linters = {
+\ 'cs': ['OmniSharp']
+\}
+
+" Use the stdio version of OmniSharp-roslyn:
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_server_path = '/home/ruczkows/.omnisharp/run'
