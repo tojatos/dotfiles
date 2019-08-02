@@ -1,0 +1,52 @@
+# Maintainer: Krzysztof Ruczkowski <tojatos[at]gmail[dot]com>
+
+# Based on:
+# Maintainer: Levente Polyak <anthraxx[at]archlinux[dot]org>
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
+# Contributor: Thorsten Töpper <atsutane-tu@freethoughts.de>
+# Contributor: Thayer Williams <thayer@archlinux.org>
+# Contributor: Jeff 'codemac' Mickey <jeff@archlinux.org>
+
+pkgname=dmenu_custom
+realname=dmenu
+pkgver=4.9
+pkgrel=1
+pkgdesc='Generic menu for X'
+url='https://tools.suckless.org/dmenu/'
+arch=('x86_64')
+license=('MIT')
+conflicts=('dmenu')
+depends=('sh' 'libxinerama' 'libxft' 'freetype2')
+_patches=("https://tools.suckless.org/dmenu/patches/fuzzymatch/dmenu-fuzzymatch-4.9.diff")
+source=(https://dl.suckless.org/tools/dmenu-${pkgver}.tar.gz ${_patches[@]})
+sha512sums=('c2779209fe012de8ca1cdd72923da6d594f4a8368c85c3c0e0afd4ae489a95fe0e6f05a947d115b6b389aa7170ab14c2c645a2031353b0a08f38327ab461fe65'
+            '6ce4ce0ddb9c1058f253ce46cdae8949c468d97ce7d787831d8a4f4ebd4db672761e2552703f58d36d01b2933dea624a30627629027b9a5960b404542a40a732')
+
+prepare() {
+  cp *.diff $realname-$pkgver
+  cd ${realname}-${pkgver}
+  echo "CPPFLAGS+=${CPPFLAGS}" >> config.mk
+  echo "CFLAGS+=${CFLAGS}" >> config.mk
+  echo "LDFLAGS+=${LDFLAGS}" >> config.mk
+  for patch in "${_patches[@]}"; do
+    echo "Applying patch $(basename $patch)..."
+    patch -Np1 -i "$(basename $patch)"
+  done
+}
+
+build() {
+  cd ${realname}-${pkgver}
+  make \
+	  X11INC=/usr/include/X11 \
+	  X11LIB=/usr/lib/X11 \
+	  FREETYPEINC=/usr/include/freetype2
+}
+
+package() {
+  cd ${realname}-${pkgver}
+  make PREFIX=/usr DESTDIR="${pkgdir}" install
+  install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}
+
+# vim: ts=2 sw=2 et:
