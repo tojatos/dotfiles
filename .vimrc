@@ -17,6 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/Colorizer'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'ambv/black'
 call plug#end()
 set number
 
