@@ -171,3 +171,4 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 gaps inner 10
 gaps outer 0
 smart_gaps on
+focus_follows_mouse no
