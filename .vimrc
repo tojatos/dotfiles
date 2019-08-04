@@ -35,13 +35,6 @@ set splitright
 
 colorscheme codedark
 
-" Remap leader to space
-nnoremap <SPACE> <Nop>
-let mapleader = "\<Space>"
-let maplocalleader = "\<Space>"
-
-nnoremap <Leader>j :FZF<Return>
-
 " Latex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -54,12 +47,6 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-
-" Disable arrow movement, resize splits instead.
-nnoremap  <Up>     :resize    +2<CR>
-nnoremap  <Down>   :resize    -2<CR>
-nnoremap  <Left>   :vertical  resize  +2<CR>
-nnoremap  <Right>  :vertical  resize  -2<CR>
 
 " Map yank buffer to system clipboards
 set clipboard=unnamed,unnamedplus
@@ -120,3 +107,23 @@ augroup END
 
 " bash like completion
 set wildmode=longest,list,full
+
+" automatic folding
+set foldmethod=indent
+
+" remaps
+" Remap leader to space
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+
+nnoremap <Leader>j :FZF<Return>
+
+nnoremap <Leader>g :Gstatus<Return>
+nnoremap <Leader>q :q<Return>
+
+" Disable arrow movement, resize splits instead.
+nnoremap  <Up>     :resize    +2<CR>
+nnoremap  <Down>   :resize    -2<CR>
+nnoremap  <Left>   :vertical  resize  +2<CR>
+nnoremap  <Right>  :vertical  resize  -2<CR>
