@@ -7,7 +7,6 @@ git-lfs
 gvim
 hub
 ncdu
-ranger
 redshift
 sudo
 the_silver_searcher
@@ -34,3 +33,4 @@ alsa-utils
 wget
 nerd-fonts-dejavu-complete
 bat
+vifm
