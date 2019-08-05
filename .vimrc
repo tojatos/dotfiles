@@ -21,6 +21,9 @@ call plug#end()
 
 syntax on
 
+colorscheme codedark
+
+" Sets ---------------------- {{{
 set number
 set tabstop=4
 set incsearch
@@ -31,40 +34,43 @@ set noshowmode
 set smartcase
 set splitbelow
 set splitright
-
-colorscheme codedark
-
-" Latex
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
 set conceallevel=2
-let g:tex_conceal='abdmgs'
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
 " Map yank buffer to system clipboards
 set clipboard=unnamed,unnamedplus
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
 
-" Omnisharp
+" Bash like completion
+set wildmode=longest,list,full
+
+" Automatic folding
+set foldmethod=indent
+" }}}
+" Latex ---------------------- {{{
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+let g:tex_conceal='abdmgs'
+" }}}
+" UltiSnips ---------------------- {{{
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+" }}}
+" Omnisharp ---------------------- {{{
+"
+" Use the stdio version of OmniSharp-roslyn:
+let g:OmniSharp_server_stdio = 1
+
+let g:OmniSharp_server_path = '/home/tojatos/.omnisharp/run'
+let g:OmniSharp_selector_ui = 'fzf'
+
 let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
 
-" Use the stdio version of OmniSharp-roslyn:
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_server_path = '/home/tojatos/.omnisharp/run'
-
-set signcolumn=yes
-set updatetime=100
-
 sign define OmniSharpCodeActions text=
-" highlight OmniSharpCodeActions ctermbg=NONE ctermfg=yellow
 
 augroup OSCountCodeActions
   autocmd!
@@ -89,12 +95,10 @@ function! s:CBReturnCount(count) abort
     execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
   endif
 endfunction
-" syn region    cBlock        start="{" end="}" transparent fold
-let g:OmniSharp_selector_ui = 'fzf'
-nnoremap <Leader><Leader> :OmniSharpGetCodeActions<CR>
 
 augroup omnisharp_commands
     autocmd!
+    autocmd FileType cs nnoremap <Leader><Leader> :OmniSharpGetCodeActions<CR>
     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
@@ -102,15 +106,18 @@ augroup omnisharp_commands
 
     " Find all code errors/warnings for the current solution and populate the quickfix window
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
+
+    autocmd FileType cs setlocal signcolumn=yes
+    autocmd FileType cs setlocal updatetime=100
 augroup END
-
-" bash like completion
-set wildmode=longest,list,full
-
-" automatic folding
-set foldmethod=indent
-
-" remaps
+" }}}
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+" Remaps ---------------------- {{{
 " Remap leader to space
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
@@ -126,3 +133,11 @@ nnoremap  <Up>     :resize    +2<CR>
 nnoremap  <Down>   :resize    -2<CR>
 nnoremap  <Left>   :vertical  resize  +2<CR>
 nnoremap  <Right>  :vertical  resize  -2<CR>
+
+" Edit .vimrc
+nnoremap  <Leader>ve :split $MYVIMRC<CR>
+" Source .vimrc
+nnoremap  <Leader>vs :source $MYVIMRC<CR>
+" Surround with quotes
+vnoremap  " <esc>a"<esc>bi"<esc>lel
+" }}}
