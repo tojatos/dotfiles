@@ -1,7 +1,6 @@
 #!/bin/bash
 
 alias ll="ls -Atghl --color=auto"
-alias md="mkdir"
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --no-playlist"
 alias v="vim -p"
 alias pss="ps aux | grep -i "
@@ -9,8 +8,10 @@ alias pogoda="curl pl.wttr.in/Wrocław"
 
 alias glsi="git ls-files -i --exclude-from=.gitignore"
 alias g="git status"
+alias gd="git diff"
 alias gss="git status -s"
 alias gp="git log --pretty --oneline --all --graph"
+alias ssync="git submodule sync --recursive && git submodule update --init --recursive"
 
 alias yocto-dev='ssh 10.181.195.118'
 alias yocto-dev2='ssh 10.181.199.242'
