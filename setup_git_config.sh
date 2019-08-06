@@ -5,3 +5,6 @@ git config --global status.submoduleSummary true
 
 # Display submodule changes in `git diff`
 git config --global diff.submodule log
+
+# Rebase by default in `git pull` (without destroying the branch structure)
+git config --global pull.rebase merges
