@@ -9,6 +9,7 @@ alias pogoda="curl pl.wttr.in/Wrocław"
 
 alias glsi="git ls-files -i --exclude-from=.gitignore"
 alias gss="git status -s"
+alias gp="git log --pretty --oneline --all --graph"
 
 alias yocto-dev='ssh 10.181.195.118'
 alias yocto-dev2='ssh 10.181.199.242'
