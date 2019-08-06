@@ -8,6 +8,7 @@ alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
 
 alias glsi="git ls-files -i --exclude-from=.gitignore"
+alias g="git status"
 alias gss="git status -s"
 alias gp="git log --pretty --oneline --all --graph"
 
