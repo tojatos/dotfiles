@@ -169,4 +169,5 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 focus_follows_mouse no
+mouse_warping none
 for_window [class="NKM"] floating enable
