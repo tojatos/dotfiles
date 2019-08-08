@@ -25,7 +25,7 @@ zsh
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
-xorg-xsetroot
+hsetroot
 dunst
 pulseaudio
 pulseaudio-alsa
@@ -34,3 +34,4 @@ wget
 nerd-fonts-dejavu-complete
 bat
 vifm
+compton

@@ -151,8 +151,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # lock screen automatically after 10min (checks if I am watching a video for example)
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 600 'betterlockscreen --lock' ''
 # set solid wallpaper
-exec --no-startup-id xsetroot -solid "#1e1e1e"
-
+exec --no-startup-id hsetroot -solid "#1e1e1e"
+# start composite manager
+exec --no-startup-id compton -CGb
 # start notifier
 exec --no-startup-id dunst
 
