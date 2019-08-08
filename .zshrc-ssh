@@ -26,6 +26,7 @@ export EDITOR=vim
 
 FILES_TO_SOURCE=(
   $HOME/.aliases
+  $HOME/.local_aliases
 )
 
 for file in $FILES_TO_SOURCE
