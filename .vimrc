@@ -63,7 +63,7 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " Use the stdio version of OmniSharp-roslyn:
 let g:OmniSharp_server_stdio = 1
 
-let g:OmniSharp_server_path = '/home/tojatos/.omnisharp/run'
+let g:OmniSharp_server_path = $HOME.'/.omnisharp/run'
 let g:OmniSharp_selector_ui = 'fzf'
 
 let g:ale_linters = {
