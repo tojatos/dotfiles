@@ -5,8 +5,9 @@ let mapleader = " "
 nmap <Leader>f :action FindUsages<CR>
 nmap <Leader>g :action Generate<CR>
 nmap <Leader>w :action JumpToLastWindow<CR>
-nmap <Leader>r :action ChooseRunConfiguration<CR>
 nmap <Leader>q :action CloseActiveTab<CR>
+nmap <Leader>n :action NextOccurence<CR>
+nmap <Leader>p :action PreviousOccurence<CR>
 nmap zo :action ExpandRegion<CR>
 nmap zc :action CollapseRegion<CR>
 nmap zO :action ExpandRegionRecursively<CR>
