@@ -1,0 +1,18 @@
+set clipboard=unnamedplus,unnamed
+
+let mapleader = " "
+
+nmap <Leader>f :action FindUsages<CR>
+nmap <Leader>g :action Generate<CR>
+nmap <Leader>w :action JumpToLastWindow<CR>
+nmap <Leader>r :action ChooseRunConfiguration<CR>
+nmap <Leader>q :action CloseActiveTab<CR>
+nmap zo :action ExpandRegion<CR>
+nmap zc :action CollapseRegion<CR>
+nmap zO :action ExpandRegionRecursively<CR>
+nmap zi :action ExpandAllRegions<CR>
+nmap zm :action ExpandAllToLevel2<CR>
+
+" Same as default IDEA action, but only in insert mode. Enter block-visual
+" mode in normal mode.
+imap <C-v> <Esc>:action $Paste<CR>
