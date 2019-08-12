@@ -30,11 +30,13 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "%{%f%}"
-	echo
+  echo
   [[ $UID -eq 0 ]] && char="#" || char="$"
   [[ $UID -eq 0 ]] && color="red" || color="green"
   echo -n "%{%F{${color}}%}${char}"
+
+  # Reset the color
+  echo -n "%{%f%}"
   CURRENT_BG=''
 }
 
