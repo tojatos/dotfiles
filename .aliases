@@ -8,6 +8,7 @@ alias pogoda="curl pl.wttr.in/Wrocław"
 
 alias glsi="git ls-files -i --exclude-from=.gitignore"
 alias g="git status"
+alias gs="git show"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gss="git status -s"
