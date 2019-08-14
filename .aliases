@@ -12,7 +12,9 @@ alias gs="git show"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gss="git status -s"
+alias gaa="git add -A"
 alias gp="git log --pretty --oneline --all --graph"
+alias ameno="git commit --amen --no-edit"
 alias ssync="git submodule sync --recursive && git submodule update --init --recursive"
 
 alias yocto-dev='ssh 10.181.195.118'
