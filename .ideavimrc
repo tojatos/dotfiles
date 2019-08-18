@@ -8,11 +8,15 @@ nmap <Leader>w :action JumpToLastWindow<CR>
 nmap <Leader>q :action CloseActiveTab<CR>
 nmap <Leader>n :action NextOccurence<CR>
 nmap <Leader>p :action PreviousOccurence<CR>
+nmap <PageDown> :action ReSharperGotoNextErrorInSolution<CR>
+nmap <PageUp> :action ReSharperGotoPreviousErrorInSolution<CR>
 nmap zo :action ExpandRegion<CR>
 nmap zc :action CollapseRegion<CR>
 nmap zO :action ExpandRegionRecursively<CR>
 nmap zi :action ExpandAllRegions<CR>
 nmap zm :action ExpandAllToLevel2<CR>
+
+vmap m :action ExtractMethod<CR>
 
 " Same as default IDEA action, but only in insert mode. Enter block-visual
 " mode in normal mode.
