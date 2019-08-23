@@ -131,7 +131,8 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
 nnoremap <Leader>j :FZF<Return>
-
+nnoremap <Leader>n :cnext<Return>
+nnoremap <Leader>p :cprevious<Return>
 nnoremap <Leader>g :Gstatus<Return>
 nnoremap <Leader>q :q<Return>
 
@@ -142,7 +143,7 @@ nnoremap  <Left>   :vertical  resize  +2<CR>
 nnoremap  <Right>  :vertical  resize  -2<CR>
 
 " Edit .vimrc
-nnoremap  <Leader>ve :split $MYVIMRC<CR>
+nnoremap  <Leader>ve :vsplit $MYVIMRC<CR>
 " Source .vimrc
 nnoremap  <Leader>vs :source $MYVIMRC<CR>
 " Surround with quotes
