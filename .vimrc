@@ -135,6 +135,7 @@ nnoremap <Leader>n :cnext<Return>
 nnoremap <Leader>p :cprevious<Return>
 nnoremap <Leader>g :Gstatus<Return>
 nnoremap <Leader>q :q<Return>
+nnoremap <leader>N :setlocal number!<cr>
 
 " Disable arrow movement, resize splits instead.
 nnoremap  <Up>     :resize    +2<CR>
