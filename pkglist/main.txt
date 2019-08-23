@@ -18,7 +18,6 @@ ttf-kochi-substitute
 ttf-ms-fonts
 ttf-roboto
 unrar
-vim-plug
 zathura
 zathura-pdf-mupdf
 zsh
