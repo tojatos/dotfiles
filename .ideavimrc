@@ -9,7 +9,7 @@ nmap <Leader>q :action CloseActiveTab<CR>
 nmap <Leader>n :action NextOccurence<CR>
 nmap <Leader>p :action PreviousOccurence<CR>
 nmap <PageDown> :action ReSharperGotoNextErrorInSolution<CR>
-nmap <PageUp> :action ReSharperGotoPreviousErrorInSolution<CR>
+nmap <PageUp> :action ReSharperGotoPrevErrorInSolution<CR>
 nmap zo :action ExpandRegion<CR>
 nmap zc :action CollapseRegion<CR>
 nmap zO :action ExpandRegionRecursively<CR>
