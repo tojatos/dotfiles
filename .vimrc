@@ -116,6 +116,11 @@ augroup omnisharp_commands
 
     autocmd FileType cs setlocal signcolumn=yes
     autocmd FileType cs setlocal updatetime=100
+
+	" Fix folding issues
+	autocmd FileType cs set foldmethod=marker
+	autocmd FileType cs set foldmarker={,}
+	autocmd FileType cs set foldlevel=2
 augroup END
 " }}}
 " Vimscript file settings ---------------------- {{{
