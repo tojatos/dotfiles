@@ -13,10 +13,11 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gss="git status -s"
 alias gaa="git add -A"
+alias gcm="git commit -m "
 alias gp="git log --pretty --oneline --all --graph"
 alias ameno="git commit --amen --no-edit"
 alias ssync="git submodule sync --recursive && git submodule update --init --recursive"
-
+alias dtags='git log --tags --simplify-by-decoration --pretty="format:%ai %d"'
 alias yocto-dev='ssh 10.181.195.118'
 alias yocto-dev2='ssh 10.181.199.242'
 alias yocto-dev3='ssh wrlinb181.emea.nsn-net.net'
