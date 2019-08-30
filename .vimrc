@@ -9,11 +9,10 @@ endif
 " }}}
 
 call plug#begin('~/.vim/plugged')
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dispatch'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'mattn/emmet-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
@@ -24,6 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/Colorizer'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'sheerun/vim-polyglot' " language pack (syntax highlighting for jenkinsfile for example)
 call plug#end()
 
 syntax on
@@ -74,7 +74,7 @@ let g:OmniSharp_server_path = $HOME.'/.omnisharp/run'
 let g:OmniSharp_selector_ui = 'fzf'
 
 let g:ale_linters = {
-\ 'cs': ['OmniSharp']
+\ 'cs': ['OmniSharp'],
 \}
 
 sign define OmniSharpCodeActions text=
@@ -155,3 +155,9 @@ nnoremap  <Leader>vs :source $MYVIMRC<CR>
 " Surround with quotes
 vnoremap  " <esc>a"<esc>bi"<esc>lel
 " }}}
+
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
