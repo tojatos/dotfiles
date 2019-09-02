@@ -11,3 +11,6 @@ git config --global pull.rebase merges
 
 # Abort pushing if any of the submodules is not pushed
 git config --global push.recurseSubmodules check
+
+# Show diffstat when rebasing
+git config --global rebase.stat true
