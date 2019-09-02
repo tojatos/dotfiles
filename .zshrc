@@ -39,6 +39,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 FILES_TO_SOURCE=(
   $HOME/.aliases
   $HOME/.local_aliases
+  $HOME/.fzf.zsh
   /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh

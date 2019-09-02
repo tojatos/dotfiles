@@ -15,6 +15,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dispatch'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-fish --no-bash --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/Colorizer'

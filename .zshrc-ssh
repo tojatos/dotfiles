@@ -27,10 +27,14 @@ export EDITOR=vim
 FILES_TO_SOURCE=(
   $HOME/.aliases
   $HOME/.local_aliases
+  $HOME/.fzf.zsh
 )
 
 for file in $FILES_TO_SOURCE
 do [[ -f $file ]] && source $file
 done
+
+# fix ls colors
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 true
