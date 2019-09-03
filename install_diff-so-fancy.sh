@@ -11,4 +11,5 @@ else
   sudo chmod +x diff-so-fancy
 fi
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --bool --global diff-so-fancy.stripLeadingSymbols false
 echo "diff-so-fancy installed successfully"
