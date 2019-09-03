@@ -35,9 +35,11 @@ set hlsearch
 set shiftwidth=2
 set wildmenu
 set noshowmode
+set ignorecase
 set smartcase
 set splitbelow
 set splitright
+set expandtab
 set conceallevel=2
 
 " Map yank buffer to system clipboards
