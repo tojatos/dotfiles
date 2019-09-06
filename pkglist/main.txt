@@ -34,3 +34,4 @@ nerd-fonts-dejavu-complete
 bat
 vifm
 compton
+pavucontrol
