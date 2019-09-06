@@ -35,11 +35,15 @@ export KEYTIMEOUT=1
 # change highlight color of zsh-autosuggestions plugin
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
+# make ZSH_CUSTOM visible in subshells
+export ZSH_CUSTOM=$ZSH_CUSTOM
 
 FILES_TO_SOURCE=(
   $HOME/.aliases
   $HOME/.local_aliases
   $HOME/.fzf.zsh
+  $HOME/.powerlevel10k/powerlevel10k.zsh-theme
+  $HOME/.p10k.zsh
   /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -52,3 +56,6 @@ done
 
 # finish running this script with 0 exit status
 true
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

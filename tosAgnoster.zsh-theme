@@ -168,7 +168,7 @@ prompt_status() {
 
 # Am I in a ssh session?
 prompt_ssh() {
-  ([[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]) && prompt_segment black yellow "$(hostname)"
+  ([[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]) && prompt_segment black yellow "$(hostname | cut -c -9)"
 }
 
 ## Main prompt
