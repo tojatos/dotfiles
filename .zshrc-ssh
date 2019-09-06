@@ -28,8 +28,8 @@ FILES_TO_SOURCE=(
   $HOME/.aliases
   $HOME/.local_aliases
   $HOME/.fzf.zsh
-  $HOME/.powerlevel10k/powerlevel10k.zsh-theme
   $HOME/.p10k.zsh
+  $HOME/.powerlevel10k/powerlevel10k.zsh-theme
 )
 
 for file in $FILES_TO_SOURCE
