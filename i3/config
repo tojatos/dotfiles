@@ -2,6 +2,7 @@
 set $mod Mod4
 
 font xft:DejaVu Sans Mono for Powerline 14
+for_window [class=".*"] title_format "<span font='DejaVu Sans Mono for Powerline 11'> › %title</span>"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -171,3 +172,32 @@ smart_gaps on
 focus_follows_mouse no
 mouse_warping none
 for_window [class="NKM"] floating enable
+
+# colors
+set $base00 #111111
+set $base01 #303030
+set $base02 #353535
+set $base03 #4A4A4A
+set $base04 #B2CCD6
+set $base05 #FFFFFF
+set $base06 #EEFFFF
+set $base07 #FFFFFF
+set $base08 #F07178
+set $base09 #F78C6C
+set $base0A #FDF200
+set $base0B #13CA91
+set $base0C #00FECA
+set $base0D #7898FB
+set $base0E #FF2079
+set $base0F #FF5370
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base04 $base04 $base00 $base05 $base05
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base00 $base00 $base05 $base03 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
+# cycle workspaces
+bindsym $mod+Tab workspace back_and_forth
