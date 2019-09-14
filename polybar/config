@@ -46,7 +46,7 @@ font-0 = DejaVuSansMono Nerd Font:style=Book:pixelsize=11;1
 
 modules-left = i3
 modules-center =
-modules-right = xbacklight pulseaudio memory cpu wlan eth temperature battery date
+modules-right = wlan eth xbacklight pulseaudio memory cpu gputemperature cputemperature battery date
 
 tray-position = right
 
@@ -145,7 +145,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %downspeed% %essid:0:8:...%
+label-connected = %downspeed:7:7% %essid:0:8:...%
 
 ramp-signal-0 = 睊
 ramp-signal-1 = 直
@@ -274,14 +274,36 @@ animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
-[module/temperature]
+[module/cputemperature]
 type = internal/temperature
 thermal-zone = 0
-base-temperature = 25
-warn-temperature = 60
+base-temperature = 35
+warn-temperature = 80
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = #f90000
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/gputemperature]
+type = internal/temperature
+thermal-zone = 0
+base-temperature = 35
+warn-temperature = 80
+hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon/hwmon2/temp1_input
+
+format = <ramp> <label>
+format-underline = #4bffdc
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
