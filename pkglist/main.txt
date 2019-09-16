@@ -36,3 +36,4 @@ vifm
 compton
 pavucontrol
 xclip
+xsel

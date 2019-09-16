@@ -160,3 +160,6 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+" prevent vim from clearing clipboard on exit
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
