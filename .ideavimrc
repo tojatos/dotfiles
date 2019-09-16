@@ -21,3 +21,4 @@ vmap m :action ExtractMethod<CR>
 " Same as default IDEA action, but only in insert mode. Enter block-visual
 " mode in normal mode.
 imap <C-v> <Esc>:action $Paste<CR>
+set clipboard+=ideaput
