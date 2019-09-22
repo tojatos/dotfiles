@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias ls='ls --color=tty'
 alias ll="ls -Atghl --color=auto"
 alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --no-playlist"
 alias v="vim -p"

@@ -21,9 +21,6 @@ unrar
 zathura
 zathura-pdf-mupdf
 zsh
-zsh-autosuggestions
-zsh-completions
-zsh-syntax-highlighting
 hsetroot
 dunst
 pulseaudio
