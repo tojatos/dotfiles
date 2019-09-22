@@ -16,6 +16,8 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 ## Use LS_COLORS for completion coloring
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+## Case insensitive search
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
