@@ -6,8 +6,38 @@ alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --no-playlist"
 alias v="vim -p"
 alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
-alias dirs="dirs -v"
 
+# dirs
+## Changing/making/removing directory
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
+alias dirs="dirs -v"
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+alias -- -='cd -'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+function d () {
+  if [[ -n $1 ]]; then
+    dirs "$@"
+  else
+    dirs -v | head -10
+  fi
+}
+compdef _dirs d
+
+# git
 alias glsi="git ls-files -i --exclude-from=.gitignore"
 alias g="git status"
 alias gs="git show"
@@ -20,6 +50,8 @@ alias gp="git log --pretty --oneline --all --graph"
 alias ameno="git commit --amen --no-edit"
 alias ssync="git submodule sync --recursive && git submodule update --init --recursive"
 alias dtags='git log --tags --simplify-by-decoration --pretty="format:%ai %d"'
+
+# yocto
 alias yocto-dev='ssh 10.181.195.118'
 alias yocto-dev2='ssh 10.181.199.242'
 alias yocto-dev3='ssh wrlinb181.emea.nsn-net.net'
@@ -28,4 +60,8 @@ alias yocto-dev5='ssh 10.181.200.113'
 
 piscan() {
   sudo nmap -sP 192.168.1.0/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'
+}
+
+take() {
+  mkdir -p "$@" && cd "${@:$#}" || return
 }
