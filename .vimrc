@@ -29,6 +29,7 @@ colorscheme codedark
 
 " Sets ---------------------- {{{
 set number
+set relativenumber
 set tabstop=4
 set incsearch
 set hlsearch
