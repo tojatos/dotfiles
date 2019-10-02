@@ -33,3 +33,4 @@ compton
 pavucontrol
 xclip
 xsel
+rclone
