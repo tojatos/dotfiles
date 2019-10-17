@@ -34,3 +34,4 @@ pavucontrol
 xclip
 xsel
 rclone
+fd
