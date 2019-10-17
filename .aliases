@@ -70,3 +70,9 @@ piscan() {
 take() {
   mkdir -p "$@" && cd "${@:$#}" || return
 }
+
+swap() {
+  [[ ! -n $1 ]] || [[ ! -n $2 ]] && echo "Not enough arguments!" && return 1
+  local TMPFILE=tmp.$$
+  mv "$1" ${TMPFILE} && mv "$2" "$1" && mv ${TMPFILE} "$2"
+}
