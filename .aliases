@@ -7,6 +7,10 @@ alias v="vim -p"
 alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
 
+kunity() {
+  pss "[E]ditor/Unity " | awk '{ print $2 }' | xargs kill -9
+}
+
 # dirs
 ## Changing/making/removing directory
 setopt auto_pushd
