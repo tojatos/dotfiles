@@ -143,17 +143,19 @@ nnoremap <Leader>q :q<Return>
 nnoremap <leader>N :setlocal number!<cr>
 
 " Disable arrow movement, resize splits instead.
-nnoremap  <Up>     :resize    +2<CR>
-nnoremap  <Down>   :resize    -2<CR>
-nnoremap  <Left>   :vertical  resize  +2<CR>
-nnoremap  <Right>  :vertical  resize  -2<CR>
+nnoremap <Up>     :resize    +2<CR>
+nnoremap <Down>   :resize    -2<CR>
+nnoremap <Left>   :vertical  resize  +2<CR>
+nnoremap <Right>  :vertical  resize  -2<CR>
 
 " Edit .vimrc
-nnoremap  <Leader>ve :vsplit $MYVIMRC<CR>
+nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 " Source .vimrc
-nnoremap  <Leader>vs :source $MYVIMRC<CR>
+nnoremap <Leader>vs :source $MYVIMRC<CR>
 " Surround with quotes
-vnoremap  " <esc>a"<esc>bi"<esc>lel
+vnoremap " <esc>a"<esc>bi"<esc>lel
+" Run ./run.sh and show output in split
+nnoremap <Leader>m :term ./run.sh %<CR>
 " }}}
 
 command! -bang -nargs=* GGrep
@@ -164,3 +166,7 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " prevent vim from clearing clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+" ocaml merlin setup
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
