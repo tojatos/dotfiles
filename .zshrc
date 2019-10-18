@@ -62,8 +62,9 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 export EDITOR=vim
 
 #fzf
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND="fd --type file --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
 
 FILES_TO_SOURCE=(
   $HOME/.aliases
