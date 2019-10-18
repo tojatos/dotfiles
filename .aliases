@@ -55,6 +55,7 @@ alias gp="git log --pretty --oneline --all --graph"
 alias ameno="git commit --amen --no-edit"
 alias ssync="git submodule sync --recursive && git submodule update --init --recursive"
 alias dtags='git log --tags --simplify-by-decoration --pretty="format:%ai %d"'
+alias gdm='git diff master@{1} master'
 
 # yocto
 alias yocto-dev='ssh 10.181.195.118'
