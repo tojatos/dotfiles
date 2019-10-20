@@ -140,7 +140,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp0s20u4
+interface = ${env:DEFAULT_NETWORK_INTERFACE:wlp3s0}
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -243,7 +243,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = ${env:DEFAULT_BATTERY:BAT0}
 adapter = ADP1
 full-at = 98
 
