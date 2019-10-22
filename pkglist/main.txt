@@ -36,3 +36,4 @@ xsel
 rclone
 fd
 network-manager-applet
+udiskie

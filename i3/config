@@ -161,6 +161,8 @@ exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 # start flameshot
 exec --no-startup-id flameshot
+# start udiskie
+exec --no-startup-id udiskie --tray
 
 # function key mappings
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
