@@ -6,6 +6,11 @@ alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --no-playlist"
 alias v="vim -p"
 alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
+alias oo="xdg-open"
+
+o() {
+  xdg-open "$*" & disown
+}
 
 kunity() {
   pss "[E]ditor/Unity " | awk '{ print $2 }' | xargs kill -9
