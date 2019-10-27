@@ -26,6 +26,9 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+# Update history immediately
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -43,7 +46,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # cd without typing `cd`
-setopt autocd
+setopt AUTOCD
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
