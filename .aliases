@@ -8,6 +8,10 @@ alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
 alias oo="xdg-open"
 
+lsuspend() {
+  betterlockscreen --lock & systemctl suspend
+}
+
 o() {
   xdg-open "$*" & disown
 }
