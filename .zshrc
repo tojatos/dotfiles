@@ -40,6 +40,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
+## Bash completion compatibility
+autoload -U +X bashcompinit && bashcompinit
 
 # vi mode
 bindkey -v
