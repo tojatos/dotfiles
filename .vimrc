@@ -21,6 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/Colorizer'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'sheerun/vim-polyglot' " language pack (syntax highlighting for jenkinsfile for example)
+Plug 'janko/vim-test'
 call plug#end()
 
 syntax on
@@ -154,10 +155,16 @@ nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 nnoremap <Leader>vs :source $MYVIMRC<CR>
 " Surround with quotes
 vnoremap " <esc>a"<esc>bi"<esc>lel
+
+function ShowCommand(command)
+  execute 'bot term'.a:command
+  setlocal nonumber
+  setlocal norelativenumber
+endfunction
 " Run ./run.sh and show output in split
-nnoremap <Leader>m :bot term ./run.sh %<CR>
+nnoremap <Leader>m :call ShowCommand('./run.sh %')<CR>
 " Run ./test.sh and show output in split
-nnoremap <Leader>n :bot term ./test.sh<CR>
+nnoremap <Leader>n :call ShowCommand('./test.sh')<CR>
 " }}}
 
 command! -bang -nargs=* GGrep
