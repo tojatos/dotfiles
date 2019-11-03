@@ -155,9 +155,9 @@ nnoremap <Leader>vs :source $MYVIMRC<CR>
 " Surround with quotes
 vnoremap " <esc>a"<esc>bi"<esc>lel
 " Run ./run.sh and show output in split
-nnoremap <Leader>m :term ./run.sh %<CR>
+nnoremap <Leader>m :bot term ./run.sh %<CR>
 " Run ./test.sh and show output in split
-nnoremap <Leader>n :term ./test.sh<CR>
+nnoremap <Leader>n :bot term ./test.sh<CR>
 " }}}
 
 command! -bang -nargs=* GGrep
