@@ -23,3 +23,6 @@ git config --global push.recurseSubmodules check
 
 # Show diffstat when rebasing
 git config --global rebase.stat true
+
+# Commands like `pull` recurse into submodules
+git config --global submodule.recurse true
