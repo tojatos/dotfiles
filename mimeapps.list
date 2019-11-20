@@ -1,0 +1,7 @@
+[Added Associations]
+image/png=gimp.desktop;
+text/plain=gvim.desktop;vim.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+text/plain=vim.desktop
