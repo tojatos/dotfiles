@@ -38,3 +38,5 @@ fd
 network-manager-applet
 udiskie
 pacman-contrib
+mlocate
+gdb
