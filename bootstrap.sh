@@ -30,7 +30,7 @@ warn () {
 
 for file in install/*; do
   info "Installing $(basicname "${file}")"
- :  # ${file}
+  ${file}
 done
 
 CUSTOM_INSTALLATIONS=(st dmenu)
@@ -38,11 +38,11 @@ CUSTOM_INSTALLATIONS=(st dmenu)
 for CUSTOM_INSTALLATION in "${CUSTOM_INSTALLATIONS[@]}"; do
   info "Installing $CUSTOM_INSTALLATION"
   pushd "$CUSTOM_INSTALLATION" >/dev/null
-    #install.sh
+    ./install.sh
   popd >/dev/null
 done
 
 for file in setup/*; do
   info "Setting up $(basicname "${file}")"
-  : #${file}
+  ${file}
 done
