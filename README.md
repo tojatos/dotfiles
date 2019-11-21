@@ -8,6 +8,7 @@ My rubber duck is proud of them. *Don't tell anyone!*
 
 ### Config files
 Just softlink them :)
+You can use `link.sh` script for that.
 
 ### Arch packages
 Packages are listed in `pkglist` folder. Install them using `pkglist/install_packages.sh` with txt file name.
