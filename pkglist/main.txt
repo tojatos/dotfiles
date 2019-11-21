@@ -40,3 +40,4 @@ udiskie
 pacman-contrib
 mlocate
 gdb
+rsync
