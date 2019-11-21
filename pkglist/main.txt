@@ -37,3 +37,4 @@ rclone
 fd
 network-manager-applet
 udiskie
+pacman-contrib

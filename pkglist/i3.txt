@@ -2,4 +2,5 @@ i3-gaps
 polybar
 xorg-server
 xorg-xinit
-dmenu
+xterm
+betterlockscreen
