@@ -42,10 +42,11 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = DejaVuSansMono Nerd Font:style=Book:pixelsize=11;1
+font-0 = Weather Icons:size=12;0
+font-1 = DejaVuSansMono Nerd Font:style=Book:pixelsize=11;1
 
 modules-left = i3
-modules-center =
+modules-center = weather
 modules-right = wlan eth xbacklight pulseaudio memory cpu gputemperature cputemperature battery date
 
 tray-position = right
@@ -315,6 +316,13 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/polybar-forecast
+exec-if = ping openweathermap.org -c 1
+interval = 600
+label-font = 3
 
 [settings]
 screenchange-reload = true
