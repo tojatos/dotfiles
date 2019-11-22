@@ -178,6 +178,7 @@ smart_gaps on
 focus_follows_mouse no
 mouse_warping none
 for_window [class="NKM"] floating enable
+for_window [title="^Android Emulator -"] floating enable
 
 # colors
 set $base00 #111111
