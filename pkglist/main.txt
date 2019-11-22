@@ -29,7 +29,7 @@ alsa-utils
 wget
 nerd-fonts-dejavu-complete
 bat
-compton
+picom
 pavucontrol
 xclip
 xsel
