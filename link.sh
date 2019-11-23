@@ -17,6 +17,7 @@ declare -A links
 links=(
   [".zshrc"]="$HOME"
   [".vimrc"]="$HOME"
+  [".vim"]="$HOME"
   [".aliases"]="$HOME"
   [".ideavimrc"]="$HOME"
   [".p10k.zsh"]="$HOME"
@@ -25,7 +26,6 @@ links=(
   ["dunst"]="$HOME/.config"
   ["polybar"]="$HOME/.config"
   ["procps"]="$HOME/.config"
-  [".vim"]="$HOME/.config"
   ["mimeapps.list"]="$HOME/.config"
 
 )
