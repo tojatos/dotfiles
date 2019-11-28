@@ -27,7 +27,7 @@ links=(
   ["polybar"]="$HOME/.config"
   ["procps"]="$HOME/.config"
   ["mimeapps.list"]="$HOME/.config"
-
+  ["gtk-3.0"]="$HOME/.config"
 )
 
 basicname () {
