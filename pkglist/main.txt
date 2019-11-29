@@ -41,3 +41,4 @@ pacman-contrib
 mlocate
 gdb
 rsync
+docker
