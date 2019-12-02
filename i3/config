@@ -163,6 +163,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id flameshot
 # start udiskie
 exec --no-startup-id udiskie --tray
+# start redshift
+exec --no-startup-id redshift
 
 # function key mappings
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
