@@ -2,3 +2,5 @@ qbittorrent
 youtube-dl
 mpv
 libreoffice-fresh
+qtcreator
+valgrind
