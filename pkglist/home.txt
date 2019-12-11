@@ -4,3 +4,4 @@ mpv
 libreoffice-fresh
 qtcreator
 valgrind
+cups
