@@ -54,6 +54,16 @@ set wildmode=longest,list,full
 
 " Automatic folding
 set foldmethod=indent
+
+" Undo setup
+set undofile                " Save undos after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+if !isdirectory(&undodir)
+    call mkdir(&undodir)
+endif
 " }}}
 " Latex ---------------------- {{{
 let g:tex_flavor='latex'

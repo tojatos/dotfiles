@@ -2,3 +2,4 @@ autoload
 plugged
 swap
 .netrwhist
+undo
