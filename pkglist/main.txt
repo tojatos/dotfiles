@@ -42,3 +42,4 @@ mlocate
 gdb
 rsync
 docker
+vulkan-intel
