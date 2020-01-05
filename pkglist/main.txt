@@ -43,3 +43,5 @@ gdb
 rsync
 docker
 vulkan-intel
+shellcheck
+bash-language-server
