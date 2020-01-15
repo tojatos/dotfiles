@@ -36,6 +36,7 @@ for file in "${!links[@]}"; do
   target=${links[$file]}
   filepath="$(readlink -f "$file")"
   info "Linking $file to $target"
+  mkdir -p "$target"
   ln -sf "$filepath" "$target"
   (( $? != 0 )) && warn "Error linking $file"
 done
