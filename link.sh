@@ -24,6 +24,7 @@ links=(
   ["mimeapps.list"]="$HOME/.config"
   ["gtk-3.0"]="$HOME/.config"
   ["QtCreator.ini"]="$HOME/.config/QtProject"
+  ["polybar/config.toml"]="$HOME/.config/polybar-forecast/"
 )
 
 basicname () {
