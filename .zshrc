@@ -38,7 +38,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ## Case insensitive search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zmodload zsh/complist
-compinit
+compinit -u
 _comp_options+=(globdots)		# Include hidden files.
 ## Bash completion compatibility
 autoload -U +X bashcompinit && bashcompinit
