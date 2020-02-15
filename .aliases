@@ -14,7 +14,9 @@ lsuspend() {
 }
 
 o() {
-  xdg-open "$*" & disown
+  for x in "$@"; do
+    xdg-open "$x" & disown
+  done
 }
 
 kunity() {
