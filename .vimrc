@@ -23,6 +23,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'sheerun/vim-polyglot' " language pack (syntax highlighting for jenkinsfile for example)
 Plug 'janko/vim-test'
 Plug 'machakann/vim-swap'
+Plug 'rkitover/vimpager'
 call plug#end()
 
 syntax on

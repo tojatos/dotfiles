@@ -25,6 +25,8 @@ links=(
   ["gtk-3.0"]="$HOME/.config"
   ["QtCreator.ini"]="$HOME/.config/QtProject"
   ["polybar/config.toml"]="$HOME/.config/polybar-forecast/"
+  [".vim/plugged/vimpager/vimcat"]="$HOME/.bin"
+  [".vim/plugged/vimpager/vimpager"]="$HOME/.bin"
 )
 
 basicname () {
