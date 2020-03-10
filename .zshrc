@@ -79,6 +79,7 @@ FILES_TO_SOURCE=(
   $HOME/.fzf.zsh
   $HOME/.p10k.zsh
   $HOME/.powerlevel10k/powerlevel10k.zsh-theme
+  $HOME/.config/broot/launcher/bash/br
 )
 
 for file in $FILES_TO_SOURCE
@@ -86,6 +87,7 @@ do [[ -f $file ]] && source $file
 done
 
 APPEND_TO_PATH=(
+  $HOME/.cargo/bin
   $HOME/.bin
 )
 
