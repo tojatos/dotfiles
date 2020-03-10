@@ -167,6 +167,8 @@ exec --no-startup-id copyq
 exec --no-startup-id udiskie --tray
 # start redshift
 exec --no-startup-id redshift -l 51.1079:17.0385 -t 4300:2700
+# start pidgin
+exec --no-startup-id pidgin
 
 # function key mappings
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
