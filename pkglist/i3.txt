@@ -6,3 +6,4 @@ xterm
 betterlockscreen
 ttf-weather-icons
 gnome-themes-extra
+xidlehook
