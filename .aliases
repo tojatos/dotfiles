@@ -71,6 +71,9 @@ alias dsync="git submodule deinit --all -f"
 alias dtags='git log --tags --simplify-by-decoration --pretty="format:%ai %d"'
 alias gdm='git diff master@{1} master'
 
+# svn
+alias svnd='svn diff --git | vimpager'
+
 # yocto
 alias yocto-dev='ssh 10.181.195.118'
 alias yocto-dev2='ssh 10.181.199.242'
