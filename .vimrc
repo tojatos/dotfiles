@@ -88,6 +88,7 @@ let g:OmniSharp_selector_ui = 'fzf'
 
 let g:ale_linters = {
 \ 'cs': ['OmniSharp'],
+\ 'rust': ['rls'],
 \}
 
 sign define OmniSharpCodeActions text=
