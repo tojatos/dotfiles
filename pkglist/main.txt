@@ -42,6 +42,7 @@ mlocate
 gdb
 rsync
 docker
+docker-compose
 vulkan-intel
 shellcheck
 bash-language-server
