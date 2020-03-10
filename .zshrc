@@ -85,5 +85,13 @@ for file in $FILES_TO_SOURCE
 do [[ -f $file ]] && source $file
 done
 
+APPEND_TO_PATH=(
+  $HOME/.bin
+)
+
+for dir in $APPEND_TO_PATH
+do [[ -d $dir ]] && PATH="$dir:$PATH"
+done
+
 # finish running this script with 0 exit status
 true
