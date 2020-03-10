@@ -47,3 +47,6 @@ vulkan-intel
 shellcheck
 bash-language-server
 copyq
+dotnet-sdk
+dotnet-runtime
+dotnet-host
