@@ -66,6 +66,9 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
 export EDITOR=vim
 
+# qt dark theme
+export QT_STYLE_OVERRIDE="kvantum-dark"
+
 #fzf
 if [[ -x "$(command -v fd)" ]]; then
   export FZF_DEFAULT_COMMAND="fd --type file --color=always"
