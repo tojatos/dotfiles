@@ -200,3 +200,7 @@ autocmd BufReadPost *
      \ endif
 
 autocmd BufRead,BufNewFile *Jenkinsfile set ft=Jenkinsfile
+
+" Show whitespaces at the end of lines
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
