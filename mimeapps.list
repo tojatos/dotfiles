@@ -5,3 +5,5 @@ text/plain=gvim.desktop;vim.desktop;
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
 text/plain=vim.desktop
+x-scheme-handler/http=firefox-developer-edition.desktop
+x-scheme-handler/https=firefox-developer-edition.desktop
