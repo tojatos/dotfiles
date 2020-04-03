@@ -5,3 +5,4 @@ libreoffice-fresh
 qtcreator
 valgrind
 cups
+hplip
