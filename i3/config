@@ -149,6 +149,8 @@ exec --no-startup-id xset -b
 exec_always --no-startup-id setxkbmap -layout pl -option caps:escape
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# enable titles on floating windows
+exec_always --no-startup-id $HOME/.dotfiles/i3/floating_title.py
 # lock screen automatically after 10min (checks if I am watching a video for example)
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 600 'betterlockscreen --lock' ''
 # set solid wallpaper
