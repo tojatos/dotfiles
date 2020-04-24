@@ -6,3 +6,5 @@ qtcreator
 valgrind
 cups
 hplip
+texlive-most
+minted
