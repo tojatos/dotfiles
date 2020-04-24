@@ -7,3 +7,4 @@ application/pdf=org.pwmt.zathura.desktop
 text/plain=vim.desktop
 x-scheme-handler/http=firefox-developer-edition.desktop
 x-scheme-handler/https=firefox-developer-edition.desktop
+image/png=sxiv.desktop
