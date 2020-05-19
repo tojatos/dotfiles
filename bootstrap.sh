@@ -15,18 +15,16 @@ basicname () {
   echo "${file/%.*}"
 }
 
-for file in install/*; do
+for file in install/*.sh; do
   info "Installing $(basicname "${file}")"
   ${file}
 done
 
-CUSTOM_INSTALLATIONS=(st dmenu)
-
-for CUSTOM_INSTALLATION in "${CUSTOM_INSTALLATIONS[@]}"; do
+for CUSTOM_INSTALLATION in install/custom/*; do
   info "Installing $CUSTOM_INSTALLATION"
-  pushd "$CUSTOM_INSTALLATION" >/dev/null
+  cd "$CUSTOM_INSTALLATION"
     ./install.sh
-  popd >/dev/null
+  cd -
 done
 
 for file in setup/*; do
