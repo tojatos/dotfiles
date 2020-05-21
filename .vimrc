@@ -177,8 +177,6 @@ nnoremap <Right>  :vertical  resize  -2<CR>
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 " Source .vimrc
 nnoremap <Leader>vs :source $MYVIMRC<CR>
-" Surround with quotes
-vnoremap " <esc>a"<esc>bi"<esc>lel
 
 function ShowCommand(command)
   execute 'bot term'.a:command
