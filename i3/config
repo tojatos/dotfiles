@@ -112,6 +112,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+b exec "firefox-developer-edition"
 # lock screen
 bindsym $mod+i exec "betterlockscreen --lock"
+# run flameshot
+bindsym $mod+Shift+s exec "flameshot gui"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
