@@ -173,6 +173,9 @@ nnoremap <Down>   :resize    -2<CR>
 nnoremap <Left>   :vertical  resize  +2<CR>
 nnoremap <Right>  :vertical  resize  -2<CR>
 
+" Replace without overwriting buffer
+vnoremap <s-p> "_dP
+
 " Edit .vimrc
 nnoremap <Leader>ve :vsplit $MYVIMRC<CR>
 " Source .vimrc
