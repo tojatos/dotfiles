@@ -27,6 +27,7 @@ links=(
   ["polybar/config.toml"]="$HOME/.config/polybar-forecast/"
   [".vim/plugged/vimpager/vimcat"]="$HOME/.bin"
   [".vim/plugged/vimpager/vimpager"]="$HOME/.bin"
+  [".ssh/config"]="$HOME/.ssh"
 )
 
 basicname () {
