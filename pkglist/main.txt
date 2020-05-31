@@ -50,3 +50,4 @@ copyq
 dotnet-sdk
 dotnet-runtime
 dotnet-host
+ufw
