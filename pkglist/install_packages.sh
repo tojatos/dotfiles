@@ -1,8 +1,8 @@
 #!/bin/bash
-if [[ -z $1  ]]; then
+if [[ -z $@  ]]; then
   echo "Argument needed."
 else
   yay -Sy
-  yay -S --needed --noconfirm - < "$1"
+  yay -S --needed --noconfirm $(cat "$@")
 fi
 
