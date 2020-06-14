@@ -16,7 +16,7 @@ depends=('libxft' 'libxext' 'xorg-fonts-misc')
 makedepends=('ncurses')
 conflicts=('st')
 _patches=("https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff" 
-            "https://st.suckless.org/patches/hidecursor/st-hidecursor-0.8.1.diff"
+            "https://st.suckless.org/patches/hidecursor/st-hidecursor-0.8.diff"
 "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.1.diff"
 "https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.diff"
 "https://st.suckless.org/patches/scrollback/st-scrollback-mouse-altscreen-20190131-e23acb9.diff"
@@ -52,7 +52,7 @@ package() {
 md5sums=('92135aecdba29300bb2e274a55f5b71e'
          '57e2e7e77c424cc8d9454098210ec6b8'
          '9effc30b79e07c3dc9d2a1e41b9dd6d1'
-         '7b6f4a1efe7987b8f5554b4ec16082f9'
+         '8749ced53fc11d7a979fa8fa21d66de4'
          '244efdbbd3dc00e8fe8d607fc5ed004b'
          '72227737f6cd831afd014a3613bd559d'
          '1b41ef8af1f2ccf3605fb5da5438e5ee')
