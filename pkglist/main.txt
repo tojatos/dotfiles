@@ -51,3 +51,4 @@ dotnet-sdk
 dotnet-runtime
 dotnet-host
 ufw
+man-db
