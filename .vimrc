@@ -28,7 +28,7 @@ call plug#end()
 
 syntax on
 
-colorscheme codedark
+silent! colorscheme codedark
 
 " Sets ---------------------- {{{
 set number
@@ -48,7 +48,7 @@ set conceallevel=2
 
 " Map yank buffer to system clipboards
 set clipboard=unnamed,unnamedplus
-highlight EndOfBuffer ctermfg=bg ctermbg=bg
+silent! highlight EndOfBuffer ctermfg=bg ctermbg=bg
 
 " Bash like completion
 set wildmode=longest,list,full
