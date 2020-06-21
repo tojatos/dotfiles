@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/bash -e
+
+USER_EMAIL=${USER_EMAIL:-"tojatos@gmail.com"}
+USER_NAME=${USER_NAME:-"tojatos"}
 
 version_gt() { test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"; }
 
@@ -26,3 +29,6 @@ git config --global rebase.stat true
 
 # Commands like `pull` recurse into submodules
 git config --global submodule.recurse true
+
+git config --global user.email $USER_EMAIL
+git config --global user.name $USER_NAME

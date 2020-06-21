@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 git config --global color.ui true
 
