@@ -69,6 +69,9 @@ export EDITOR=vim
 # qt dark theme
 export QT_STYLE_OVERRIDE="kvantum-dark"
 
+# fix git show issue, similar problem at https://github.com/coreos/bugs/issues/365
+export LESSCHARSET=utf-8
+
 #fzf
 if [[ -x "$(command -v fd)" ]]; then
   export FZF_DEFAULT_COMMAND="fd --type file --color=always"
