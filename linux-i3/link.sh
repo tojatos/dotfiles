@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_DIR=$PWD
+BASE_DIR=$(cd .. && pwd)
 
 enable_module () {
   source "$BASE_DIR/lib/$1"
@@ -10,26 +10,15 @@ enable_module logging
 
 declare -A links
 links=(
-  [".zshrc"]="$HOME"
-  [".vimrc"]="$HOME"
-  [".vim"]="$HOME"
   [".xinitrc"]="$HOME"
   [".zprofile"]="$HOME"
-  [".aliases"]="$HOME"
-  [".ideavimrc"]="$HOME"
-  [".p10k.zsh"]="$HOME"
   [".compton.conf"]="$HOME"
   ["i3"]="$HOME/.config"
   ["dunst"]="$HOME/.config"
   ["polybar"]="$HOME/.config"
-  ["procps"]="$HOME/.config"
   ["mimeapps.list"]="$HOME/.config"
   ["gtk-3.0"]="$HOME/.config"
-  ["QtCreator.ini"]="$HOME/.config/QtProject"
   ["polybar/config.toml"]="$HOME/.config/polybar-forecast/"
-  [".vim/plugged/vimpager/vimcat"]="$HOME/.bin"
-  [".vim/plugged/vimpager/vimpager"]="$HOME/.bin"
-  [".ssh/config"]="$HOME/.ssh"
 )
 
 basicname () {
