@@ -1,0 +1,1 @@
+cinst (Get-Content .\choco.txt)
