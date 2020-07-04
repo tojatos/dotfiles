@@ -8,3 +8,4 @@ ttf-weather-icons
 gnome-themes-extra
 xidlehook
 kvantum-qt5
+acpilight

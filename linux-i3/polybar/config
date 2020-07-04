@@ -47,7 +47,7 @@ font-1 = DejaVuSansMono Nerd Font:style=Book:pixelsize=11;1
 
 modules-left = i3
 modules-center = weather
-modules-right = wlan eth xbacklight pulseaudio memory cpu gputemperature cputemperature battery date
+modules-right = wlan eth backlight-acpi pulseaudio memory cpu gputemperature cputemperature battery date
 
 tray-position = right
 
