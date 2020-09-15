@@ -15,6 +15,7 @@ links=(
   [".aliases"]="$HOME"
   [".ideavimrc"]="$HOME"
   [".p10k.zsh"]="$HOME"
+  [".tmux.conf"]="$HOME"
   ["procps"]="$HOME/.config"
   ["QtCreator.ini"]="$HOME/.config/QtProject"
 )
