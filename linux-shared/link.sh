@@ -10,6 +10,7 @@ enable_module logging
 
 declare -A links
 links=(
+  [".bashrc"]="$HOME"
   [".zshrc"]="$HOME"
   [".aliases"]="$HOME"
   [".ideavimrc"]="$HOME"
