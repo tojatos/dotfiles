@@ -105,3 +105,4 @@ swap() {
 agg() {
   ag -U --ignore build "$@" --color | less -R
 }
+alias vps='ssh tojatos@51.83.128.23 -p53428'
