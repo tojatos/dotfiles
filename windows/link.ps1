@@ -1,6 +1,6 @@
 Import-Module $PSScriptRoot\utils.psm1 -Force
 $startup_dir = realpath "~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-$powershell_dir = realpath "D:\Documents\PowerShell"
+$powershell_dir = realpath "E:\Documents\PowerShell"
 
 $links = @{
     "profile.ps1"="$powershell_dir";

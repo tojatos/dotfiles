@@ -48,10 +48,19 @@ function ssync {
 function dsync { git submodule deinit --all -f }
 function dtags { git log --tags --simplify-by-decoration --pretty="format:%ai %d" }
 function gdm { git diff master@{1} master }
+function a { .venv/Scripts/activate }
 
-function pwr { Set-Location D:\Documents\PWR4 }
-function d { Set-Location D:\Documents }
+function pwr { Set-Location E:\Documents\PWR6 }
+function d { Set-Location E:\Documents }
 function work { Set-Location D:\Scripts }
 function ipa { Get-NetIPAddress | where AddressFamily -eq IPv4 | select InterfaceAlias,IPAddress | Format-Table }
 function ssh-copy-id { cat ~/.ssh/id_rsa.pub | ssh $args "cat >> ~/.ssh/authorized_keys" }
 function to_mp4 { ffmpeg -i $args "$([io.path]::GetFileNameWithoutExtension($args)).mp4" }
+
+# PowerShell parameter completion shim for the dotnet CLI
+Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+     param($commandName, $wordToComplete, $cursorPosition)
+         dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+         }
+ }

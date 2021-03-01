@@ -1,8 +1,9 @@
 set nocompatible
 
 if has('win32')
-  set shell=pwsh.exe\ -nologo
+  " set shell=pwsh.exe\ -nologo
   set rtp+=~/.vim
+  set encoding=utf-8
 endif
 
 " Vim plug automatic install ---------------------- {{{
@@ -19,7 +20,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-dispatch'
 Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-fish --no-bash --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -36,7 +36,7 @@ silent! colorscheme codedark
 
 " Sets ---------------------- {{{
 set number
-set relativenumber
+" set relativenumber
 set tabstop=4
 set incsearch
 set hlsearch
@@ -86,12 +86,6 @@ let g:vimtex_compiler_latexmk = {
         \ ],
         \}
 let g:polyglot_disabled = ['latex']
-" }}}
-" UltiSnips ---------------------- {{{
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " }}}
 " Vimscript file settings ---------------------- {{{
 augroup filetype_vim

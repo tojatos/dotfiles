@@ -8,6 +8,7 @@ nmap <Leader>w :action JumpToLastWindow<CR>
 nmap <Leader>q :action CloseActiveTab<CR>
 nmap <Leader>n :action NextOccurence<CR>
 nmap <Leader>p :action PreviousOccurence<CR>
+nmap <Leader>m :action Run<CR>
 nmap <PageDown> :action ReSharperGotoNextErrorInSolution<CR>
 nmap <PageUp> :action ReSharperGotoPrevErrorInSolution<CR>
 nmap zo :action ExpandRegion<CR>
