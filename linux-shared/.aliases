@@ -80,13 +80,6 @@ alias gdm='git diff master@{1} master'
 # svn
 alias svnd='svn diff --git | vimpager'
 
-# yocto
-alias yocto-dev='ssh 10.181.195.118'
-alias yocto-dev2='ssh 10.181.199.242'
-alias yocto-dev3='ssh wrlinb181.emea.nsn-net.net'
-alias yocto-dev4='ssh 10.181.200.222'
-alias yocto-dev5='ssh 10.181.200.113'
-
 piscan() {
   sudo nmap -sP 192.168.1.0/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'
 }
