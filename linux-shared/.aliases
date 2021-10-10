@@ -8,6 +8,7 @@ alias pss="ps aux | grep -i "
 alias pogoda="curl pl.wttr.in/Wrocław"
 alias oo="xdg-open"
 alias treec="tree -C | less -R"
+alias a="source .venv/bin/activate"
 
 lsuspend() {
   betterlockscreen --lock & systemctl suspend
