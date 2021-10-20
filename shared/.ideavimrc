@@ -23,3 +23,7 @@ vmap m :action ExtractMethod<CR>
 " mode in normal mode.
 imap <C-v> <Esc>:action $Paste<CR>
 set clipboard+=ideaput
+
+" mute annyoing bells
+set visualbell
+set noerrorbells
