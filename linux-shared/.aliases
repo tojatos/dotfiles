@@ -60,7 +60,7 @@ function d () {
 }
 
 # git
-alias glsi="git ls-files -i --exclude-from=.gitignore"
+alias glsi="git ls-files -i -c --exclude-from=.gitignore"
 alias g="git status"
 alias ga="git add"
 alias gs="git show"

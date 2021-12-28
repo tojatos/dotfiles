@@ -29,7 +29,7 @@ foreach ($a in $aliases_to_remove) {
 	Remove-Alias $a
 }
 
-function glsi { git ls-files -i --exclude-from=.gitignore }
+function glsi { git ls-files -i -c --exclude-from=.gitignore }
 function g { git status }
 function ga { git add $args }
 function gs { git show $args }
