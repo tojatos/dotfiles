@@ -7,6 +7,8 @@ $links = @{
     ".ssh\config"="$HOME\.ssh";
 }
 
+rm -r -fo "$HOME/.vim"
+
 foreach ($l in $links.GetEnumerator()) {
     $file_name = $($l.Name).split('\') | Select-Object -Last 1
     Write-Info "Linking $file_name to $($l.Value)"
