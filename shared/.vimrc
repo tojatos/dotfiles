@@ -8,8 +8,17 @@ endif
 
 " Vim plug automatic install ---------------------- {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  if has('win32')
+    silent ! powershell -Command "
+      \   New-Item -Path $HOME\.vim -Name autoload -Type Directory -Force;
+      \   Invoke-WebRequest
+      \   -Uri 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      \   -OutFile $HOME\.vim\autoload\plug.vim
+      \ "
+  else
+    silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " }}}
