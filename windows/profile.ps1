@@ -40,6 +40,7 @@ function gaa { git add -A }
 function gcm { git commit -m $args }
 function gp { git log --pretty --oneline --all --graph }
 function gl { git log --graph --pretty=format:'%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit }
+function amen { git commit --amen }
 function ameno { git commit --amen --no-edit }
 function ssync {
   git submodule sync --recursive
