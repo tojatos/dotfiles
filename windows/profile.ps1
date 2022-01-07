@@ -1,9 +1,9 @@
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-PoshPrompt Paradox
+Set-PoshPrompt thecyberden
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
-$workdir_path = "D:\Scripts"
+$workdir_path = "C:\Scripts"
 
 Import-Module $PSScriptRoot\utils.psm1 -Force
 
