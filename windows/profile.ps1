@@ -1,6 +1,9 @@
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-Theme Paradox
+Set-PoshPrompt Paradox
+
+$documents_path = [Environment]::GetFolderPath("MyDocuments")
+$workdir_path = "D:\Scripts"
 
 Import-Module $PSScriptRoot\utils.psm1 -Force
 
@@ -51,9 +54,9 @@ function dtags { git log --tags --simplify-by-decoration --pretty="format:%ai %d
 function gdm { git diff master@{1} master }
 function a { .venv/Scripts/activate }
 
-function pwr { Set-Location E:\Documents\PWR7 }
-function d { Set-Location E:\Documents }
-function work { Set-Location D:\Scripts }
+function pwr { Set-Location "$documents_path\PWR7" }
+function d { Set-Location "$documents_path" }
+function work { Set-Location "$workdir_path" }
 function ipa { Get-NetIPAddress | where AddressFamily -eq IPv4 | select InterfaceAlias,IPAddress | Format-Table }
 function ssh-copy-id { cat ~/.ssh/id_rsa.pub | ssh $args "cat >> ~/.ssh/authorized_keys" }
 function to_mp4 { ffmpeg -i $args "$([io.path]::GetFileNameWithoutExtension($args)).mp4" }
