@@ -22,6 +22,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " }}}
+"
+let g:polyglot_disabled = ['latex']
 
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
@@ -94,7 +96,6 @@ let g:vimtex_compiler_latexmk = {
         \   '-interaction=nonstopmode' ,
         \ ],
         \}
-let g:polyglot_disabled = ['latex']
 " }}}
 " Vimscript file settings ---------------------- {{{
 augroup filetype_vim
