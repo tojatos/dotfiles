@@ -41,7 +41,7 @@
                 "name": "PowerShell Core"
             },
             {
-                "commandline": "ssh arch@51.83.128.23",
+                "commandline": "ssh tojatos@51.83.128.23 -p53428",
                 "guid": "{02bffcc7-2553-4417-a1c9-17d6b031d2d3}",
                 "hidden": false,
                 "name": "Vps"
