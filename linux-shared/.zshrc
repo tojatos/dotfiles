@@ -1,10 +1,10 @@
 # zplugin
-ZPLUGIN=~/.zplugin/bin/zplugin.zsh
+ZINIT=~/.zinit/bin/zinit.zsh
 
-if [[ -f $ZPLUGIN ]]; then
-	source $ZPLUGIN
-	zplugin light zdharma/fast-syntax-highlighting
-	zplugin light zsh-users/zsh-autosuggestions
+if [[ -f $ZINIT ]]; then
+	source $ZINIT
+	zinit light zdharma/fast-syntax-highlighting
+	zinit light zsh-users/zsh-autosuggestions
 fi
 
 autoload -U colors && colors
