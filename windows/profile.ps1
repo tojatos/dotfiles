@@ -54,7 +54,7 @@ function dtags { git log --tags --simplify-by-decoration --pretty="format:%ai %d
 function gdm { git diff master@{1} master }
 function a { .venv/Scripts/activate }
 
-function pwr { Set-Location "$documents_path\PWR7" }
+function pwr { Set-Location "$documents_path\PWR8" }
 function d { Set-Location "$documents_path" }
 function work { Set-Location "$workdir_path" }
 function ipa { Get-NetIPAddress | where AddressFamily -eq IPv4 | select InterfaceAlias,IPAddress | Format-Table }
