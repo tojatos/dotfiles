@@ -1,4 +1,5 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -41,7 +42,7 @@
                 "name": "PowerShell Core"
             },
             {
-                "commandline": "ssh tojatos@51.83.128.23 -p53428",
+                "commandline": "ssh root@159.69.12.62",
                 "guid": "{02bffcc7-2553-4417-a1c9-17d6b031d2d3}",
                 "hidden": false,
                 "name": "Vps"
