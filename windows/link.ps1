@@ -6,8 +6,8 @@ $wt_settings_dir = realpath "$HOME\AppData\Local\Packages\Microsoft.WindowsTermi
 rm "$wt_settings_dir\settings.json"
 
 $links = @{
-    "profile.ps1"="$powershell_dir";
-    "utils.psm1"="$powershell_dir";
+    "Profile.ps1"="$powershell_dir";
+    "Utils.psm1"="$powershell_dir";
     "main.ahk"="$startup_dir";
     "settings.json"="$wt_settings_dir";
 }

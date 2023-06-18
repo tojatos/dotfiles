@@ -1,4 +1,4 @@
-$modules = @("posh-git"; "oh-my-posh"; "PSFzf")
+$modules = @("posh-git"; "PSFzf")
 foreach ($module in $modules) {
     Install-Module $module -Force
 }
