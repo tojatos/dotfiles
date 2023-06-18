@@ -1,10 +1,9 @@
 # dotfiles
 
-My beautiful dotfiles, softlinked on every single one of my linuxes.
+They are a mess.
+Sorry.
 
-My rubber duck is proud of them. *Don't tell anyone!*
-
-## Installation
+## Installation (linux)
 
 ### Config files
 Just softlink them :)
