@@ -1,0 +1,4 @@
+hetzner.cloud ssh keys are added only on VPS setup.
+To login, send public ssh key to another computer, login into VPS and add the
+ssh key there.
+ssh-copy-id is NOT working.
