@@ -1,5 +1,8 @@
 set clipboard=unnamedplus,unnamed
 
+set ideajoin
+set NERDTree
+
 let mapleader = " "
 
 nmap <Leader>f :action FindUsages<CR>
@@ -18,6 +21,9 @@ nmap zi :action ExpandAllRegions<CR>
 nmap zm :action ExpandAllToLevel2<CR>
 
 vmap m :action ExtractMethod<CR>
+
+" append to system buffer
+vmap Y "my:let @+ = @+ . @m<CR>
 
 " Same as default IDEA action, but only in insert mode. Enter block-visual
 " mode in normal mode.
