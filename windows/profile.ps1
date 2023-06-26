@@ -1,6 +1,6 @@
-winget install JanDeDobbeleer.OhMyPosh -s winget
-Import-Module posh-git
+# Import-Module posh-git
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Invoke-Expression
+$env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
 $workdir_path = "C:\Scripts"
@@ -18,10 +18,10 @@ Set-PSReadLineOption -EditMode Emacs # emacs bindings
 $env:LC_ALL = "C.UTF-8"
 
 # FZF bindings
-if (Get-Command "fzf" -ErrorAction SilentlyContinue)
-{
-	Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-}
+# if (Get-Command "fzf" -ErrorAction SilentlyContinue)
+# {
+# 	Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+# }
 
 ${function:Set-ParentLocation} = { Set-Location .. }; Set-Alias ".." Set-ParentLocation
 ${function:...} = { Set-Location ..\.. }
@@ -54,11 +54,10 @@ function ssync {
 }
 function dsync { git submodule deinit --all -f }
 function dtags { git log --tags --simplify-by-decoration --pretty="format:%ai %d" }
-function gdm { git diff master@{1} master }
+function gdm { git diff "master@{1}" master }
 function a { .venv/Scripts/activate }
 
-function pwr { Set-Location "$documents_path\PWR8" }
-function d { Set-Location "$documents_path" }
+function d { Set-Location "$documents_path\dokumenty" }
 function work { Set-Location "$workdir_path" }
 function ipa { Get-NetIPAddress | where AddressFamily -eq IPv4 | select InterfaceAlias,IPAddress | Format-Table }
 function ssh-copy-id { cat ~/.ssh/id_rsa.pub | ssh $args "cat >> ~/.ssh/authorized_keys" }
@@ -94,9 +93,9 @@ function Reload-Profile {
 }
 
 # PowerShell parameter completion shim for the dotnet CLI
-Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-     param($commandName, $wordToComplete, $cursorPosition)
-         dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-         }
- }
+# Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+#      param($commandName, $wordToComplete, $cursorPosition)
+#          dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+#             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+#          }
+#  }
