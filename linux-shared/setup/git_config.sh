@@ -30,5 +30,8 @@ git config --global rebase.stat true
 # Commands like `pull` recurse into submodules
 git config --global submodule.recurse true
 
+# No need for `git push -u origin my_branch` after a freshly checked out branch
+git config --global push.autoSetupRemote true
+
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
