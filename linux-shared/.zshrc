@@ -96,6 +96,7 @@ APPEND_TO_PATH=(
   $HOME/.cargo/bin
   $HOME/.bin
   $HOME/.dotnet/tools
+  $HOME/.local/bin
 )
 
 for dir in $APPEND_TO_PATH
