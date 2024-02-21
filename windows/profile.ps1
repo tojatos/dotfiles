@@ -3,7 +3,7 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Inv
 $env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
-$workdir_path = "C:\Scripts"
+$workdir_path = "D:\Scripts"
 
 Import-Module $PSScriptRoot\utils.psm1 -Force
 
@@ -57,13 +57,13 @@ function dtags { git log --tags --simplify-by-decoration --pretty="format:%ai %d
 function gdm { git diff "master@{1}" master }
 function a { .venv/Scripts/activate }
 
-function d { Set-Location "$documents_path\dokumenty" }
+function d { Set-Location "$documents_path/dokumenty" }
 function work { Set-Location "$workdir_path" }
 function ipa { Get-NetIPAddress | where AddressFamily -eq IPv4 | select InterfaceAlias,IPAddress | Format-Table }
 function ssh-copy-id { cat ~/.ssh/id_rsa.pub | ssh $args "cat >> ~/.ssh/authorized_keys" }
 function to_mp4 { ffmpeg -i $args "$([io.path]::GetFileNameWithoutExtension($args)).mp4" }
 function refresh_path { $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") }
-function edit_profile { vim ~\.dotfiles\windows\profile.ps1 }
+function edit_profile { vim ~/.dotfiles/windows/profile.ps1 }
 
 function wifip {
   $profiles=(netsh wlan show profiles | Select-String "All User Profile\s+:\s+(.*)").Matches.Groups | Where-Object {$_.Value -notmatch "All User Profile*"} | Foreach {
