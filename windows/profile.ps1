@@ -65,6 +65,12 @@ function to_mp4 { ffmpeg -i $args "$([io.path]::GetFileNameWithoutExtension($arg
 function refresh_path { $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") }
 function edit_profile { vim ~/.dotfiles/windows/profile.ps1 }
 
+function tif_to_pdf {
+    $inputPath = $args[0]
+    $outputPath = $inputPath -replace '\.tif$', '.pdf'
+    magick $inputPath -quality 50 -compress jpeg -page A4 $outputPath
+}
+
 function wifip {
   $profiles=(netsh wlan show profiles | Select-String "All User Profile\s+:\s+(.*)").Matches.Groups | Where-Object {$_.Value -notmatch "All User Profile*"} | Foreach {
     $wlan=netsh wlan show profiles name=$_ key=clear
