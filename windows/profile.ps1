@@ -7,6 +7,9 @@ $workdir_path = "D:\Scripts"
 
 Import-Module $PSScriptRoot\utils.psm1 -Force
 
+# https://github.com/Schniz/fnm?tab=readme-ov-file#powershell
+fnm env --use-on-cd | Out-String | Invoke-Expression
+
 function New-And-Enter-Directory([String] $path) { New-Item $path -ItemType Directory -ErrorAction SilentlyContinue | Out-Null; Set-Location $path}
 Set-Alias take New-And-Enter-Directory
 
