@@ -69,9 +69,51 @@ function refresh_path { $env:Path = [System.Environment]::GetEnvironmentVariable
 function edit_profile { vim ~/.dotfiles/windows/profile.ps1 }
 
 function tif_to_pdf {
-    $inputPath = $args[0]
-    $outputPath = $inputPath -replace '\.tif$', '.pdf'
-    magick $inputPath -quality 50 -compress jpeg -page A4 $outputPath
+    param (
+        [string[]]$inputPaths
+    )
+
+    # Expand wildcards but only for .tif files
+    $expandedPaths = @()
+    foreach ($path in $inputPaths) {
+        if ($path -like "*`**") {
+            $expandedPaths += Get-ChildItem -Path $path -Filter "*.tif" | Select-Object -ExpandProperty FullName
+        } elseif ($path -match "\.tif$") {
+            $expandedPaths += $path
+        }
+    }
+
+    if ($expandedPaths.Count -eq 0) {
+        Write-Host "No .tif files found." -ForegroundColor Red
+        return
+    }
+
+    Write-Host "Found $($expandedPaths.Count) .tif files to convert:" -ForegroundColor Cyan
+    foreach ($file in $expandedPaths) {
+        Write-Host " - $file" -ForegroundColor Yellow
+    }
+
+    # Process each file
+    foreach ($inputPath in $expandedPaths) {
+        if (Test-Path $inputPath) {
+            $outputPath = $inputPath -replace '\.tif$', '.pdf'
+
+            Write-Host "`nConverting: $inputPath -> $outputPath" -ForegroundColor White
+            $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+
+            try {
+                magick "$inputPath" -quality 50 -compress jpeg -page A4 "$outputPath"
+                $stopwatch.Stop()
+                Write-Host "✅ Success:" -ForegroundColor Green -NoNewline
+                Write-Host " $outputPath " -NoNewline
+                Write-Host "(Time: $($stopwatch.ElapsedMilliseconds) ms)" -ForegroundColor Cyan
+            } catch {
+                Write-Host "❌ Error converting: $inputPath" -ForegroundColor Red
+            }
+        } else {
+            Write-Host "⚠️ File not found: $inputPath" -ForegroundColor Magenta
+        }
+    }
 }
 
 function wifip {
