@@ -53,6 +53,7 @@
                 "commandline": "ssh root@159.69.12.62",
                 "guid": "{02bffcc7-2553-4417-a1c9-17d6b031d2d3}",
                 "hidden": false,
+                "icon": "E:\\Pictures\\icons\\hetzner.png",
                 "name": "Vps"
             },
             {
@@ -60,6 +61,13 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "commandline": "ssh tojatos@192.168.31.123",
+                "guid": "{cdfd2a9a-6161-4edd-80c8-36adf763959c}",
+                "hidden": false,
+                "icon": "E:\\Pictures\\icons\\raspberry_pi.png",
+                "name": "Raspberry Pi"
             }
         ]
     },
