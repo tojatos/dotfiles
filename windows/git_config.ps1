@@ -22,5 +22,8 @@ git config --global submodule.recurse true
 # No need for `git push -u origin my_branch` after a freshly checked out branch
 git config --global push.autoSetupRemote true
 
+# Auto stash unstaged changes on `git pull`
+git config --global rebase.autoStash true
+
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
