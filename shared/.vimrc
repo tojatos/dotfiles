@@ -4,6 +4,7 @@ if has('win32')
   " set shell=pwsh.exe\ -nologo
   set rtp+=~/.vim
   set encoding=utf-8
+  set termguicolors " fix gui colors on Windows
 endif
 
 " Vim plug automatic install ---------------------- {{{
