@@ -1,11 +1,35 @@
+function Get-EnvVariable {
+    param (
+        [string]$key,
+        [string]$default,
+        [string]$envPath = "$PSScriptRoot\.env"
+    )
+
+    # Ensure the .env file exists
+    if (-not (Test-Path $envPath)) {
+        New-Item -Path $envPath -ItemType File -Force | Out-Null
+    }
+
+    # Read the file and check for the key
+    $content = Get-Content $envPath -Raw
+    if ($content -match "$key\s*=\s*(.+)") {
+        return $matches[1].Trim()
+    }
+
+    # If not found, add the key with the default value
+    Add-Content -Path $envPath -Value "`n$key=$default"
+    return $default
+}
 # Import-Module posh-git
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Invoke-Expression
 $env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
-$workdir_path = "D:\Scripts"
+$workdir_path = Get-EnvVariable -key "WORKDIR_PATH" -default "C:\Scripts"
 
 Import-Module $PSScriptRoot\utils.psm1 -Force
+# Add reposync command
+. $PSScriptRoot\reposync.ps1
 
 # https://github.com/Schniz/fnm?tab=readme-ov-file#powershell
 fnm env --use-on-cd | Out-String | Invoke-Expression
@@ -61,7 +85,15 @@ function gdm { git diff "master@{1}" master }
 function a { .venv/Scripts/activate }
 
 function d { Set-Location "$documents_path/dokumenty" }
-function work { Set-Location "$workdir_path" }
+function work {
+    if (-not (Test-Path $workdir_path)) {
+        Write-Host "`n❌ ERROR: Directory '$workdir_path' not found!" -ForegroundColor Red
+        Write-Host "➡️  To edit the .env file, run:" -ForegroundColor Yellow
+        Write-Host "`n    vim `"$PSScriptRoot\.env`"`n" -ForegroundColor Cyan
+    } else {
+        Set-Location "$workdir_path"
+    }
+}
 function ipa { Get-NetIPAddress | where AddressFamily -eq IPv4 | select InterfaceAlias,IPAddress | Format-Table }
 function ssh-copy-id { cat ~/.ssh/id_rsa.pub | ssh $args "cat >> ~/.ssh/authorized_keys" }
 function to_mp4 { ffmpeg -i $args "$([io.path]::GetFileNameWithoutExtension($args)).mp4" }
@@ -142,6 +174,9 @@ function Reload-Profile {
         }
     }
 }
+
+
+
 
 # PowerShell parameter completion shim for the dotnet CLI
 # Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
