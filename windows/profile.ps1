@@ -26,10 +26,22 @@ $env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
 $workdir_path = Get-EnvVariable -key "WORKDIR_PATH" -default "C:\Scripts"
+$link_script = "$HOME\.dotfiles\windows\link.ps1"
+
+if (Test-Path $link_script) {
+    & $link_script
+} else {
+    Write-Warning "link.ps1 not found at $link_script"
+}
 
 Import-Module $PSScriptRoot\utils.psm1 -Force
 # Add reposync command
-. $PSScriptRoot\reposync.ps1
+$reposync_path = "$PSScriptRoot\reposync.ps1"
+if (Test-Path $reposync_path) {
+    . $reposync_path
+} else {
+    Write-Warning "reposync.ps1 not found"
+}
 
 # https://github.com/Schniz/fnm?tab=readme-ov-file#powershell
 fnm env --use-on-cd | Out-String | Invoke-Expression
