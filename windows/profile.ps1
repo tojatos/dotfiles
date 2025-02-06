@@ -25,7 +25,7 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Inv
 $env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
-$workdir_path = Get-EnvVariable -key "WORKDIR_PATH" -default "C:\Scripts"
+
 $link_script = "$HOME\.dotfiles\windows\link.ps1"
 
 if (Test-Path $link_script) {
@@ -98,6 +98,7 @@ function a { .venv/Scripts/activate }
 
 function d { Set-Location "$documents_path/dokumenty" }
 function work {
+    $workdir_path = Get-EnvVariable -key "WORKDIR_PATH" -default "C:\Scripts"
     if (-not (Test-Path $workdir_path)) {
         Write-Host "`n❌ ERROR: Directory '$workdir_path' not found!" -ForegroundColor Red
         Write-Host "➡️  To edit the .env file, run:" -ForegroundColor Yellow
