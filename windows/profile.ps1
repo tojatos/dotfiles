@@ -94,6 +94,7 @@ function ssync {
 function dsync { git submodule deinit --all -f }
 function dtags { git log --tags --simplify-by-decoration --pretty="format:%ai %d" }
 function gdm { git diff "master@{1}" master }
+function gdiff { git diff --no-index $args }
 function a { .venv/Scripts/activate }
 
 function d { Set-Location "$documents_path/dokumenty" }
