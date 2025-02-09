@@ -2,7 +2,8 @@ $USER_EMAIL = "tojatos@gmail.com"
 $USER_NAME = "tojatos"
 
 # Display submodule changes in `git status`
-git config --global status.submoduleSummary true
+# git config --global status.submoduleSummary true
+git config --global status.submoduleSummary false # submodule summary lags on Windows
 
 # Display submodule changes in `git diff`
 git config --global diff.submodule log
@@ -27,3 +28,4 @@ git config --global rebase.autoStash true
 
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
+
