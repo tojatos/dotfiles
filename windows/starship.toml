@@ -1,0 +1,53 @@
+# No newlines after each command
+add_newline = false
+
+# Powerlevel10k thin-like layout
+format = """
+$directory$git_branch$git_status$fill$time
+$character """
+
+# Directory settings
+[directory]
+truncation_length = 3
+truncation_symbol = "…"
+style = "bold cyan"
+format = " [ $path ]($style)"
+
+# Git branch
+[git_branch]
+symbol = " "
+style = "bold green"
+format = " on [ $symbol$branch ]($style)"
+
+# Git status (unstaged, ahead, behind, etc.)
+[git_status]
+conflicted = " ~"
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕${ahead_count}/${behind_count}"
+untracked = " ?${count}"
+stashed = " *${count}"
+modified = " !${count}"
+staged = " +${count}"
+renamed = " »${count}"
+deleted = " ✘${count}"
+style = "bold red"
+format = "[ $all_status ]($style)"
+disabled = false
+
+# Dotted separator between git info and time
+[fill]
+symbol = "·"
+style = "bold black"
+
+# Time (moves to the end of first line)
+[time]
+disabled = false
+time_format = "%T"  # HH:MM:SS
+format = "at [  $time ](bold blue)"
+
+# Prompt Character
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold blue)"

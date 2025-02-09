@@ -2,6 +2,7 @@ Import-Module $PSScriptRoot\utils.psm1 -Force
 $startup_dir = realpath "~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 $powershell_dir = realpath $(Split-Path -parent $profile)
 $wt_settings_dir = realpath "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
+$config_dir = realpath "$HOME\.config"
 
 # Define files for linking
 $files = @{
@@ -10,6 +11,7 @@ $files = @{
     "utils.psm1" = "$powershell_dir";
     "main.ahk" = "$startup_dir";
     "settings.json" = "$wt_settings_dir";
+    "starship.toml" = "$config_dir";
 }
 
 # Function to check if two paths are on the same drive
