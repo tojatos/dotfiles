@@ -4,6 +4,26 @@ $powershell_dir = realpath $(Split-Path -parent $profile)
 $wt_settings_dir = realpath "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
 $config_dir = realpath "$HOME\.config"
 
+# Define the dotfiles repo path and commit cache file
+$dotfiles_repo = "$HOME\.dotfiles"
+$last_commit_file = "$dotfiles_repo\.last_commit"
+
+# Get current commit hash
+$current_commit = (git -C $dotfiles_repo rev-parse HEAD 2>$null).Trim()
+
+# Read last recorded commit hash (trim newlines)
+if (Test-Path $last_commit_file) {
+    $last_commit = (Get-Content $last_commit_file -Raw).Trim()
+} else {
+    $last_commit = ""
+}
+
+# If the commit hasn't changed, exit early
+if ($current_commit -eq $last_commit) {
+    # Write-Host "`e[34m🔄 No changes in .dotfiles, skipping link script.`e[0m"
+    exit 0
+}
+
 # Define files for linking
 $files = @{
     "profile.ps1" = "$powershell_dir";
@@ -83,4 +103,9 @@ Write-Host "`r`e[KLinking result: $($statusIcons -join ' ')"
 # Print errors separately
 if ($errors.Count -gt 0) {
     $errors -join "`n" | Write-Host
+    exit 1
 }
+
+# Save the new commit hash without extra newlines
+Set-Content -Path $last_commit_file -Value $current_commit.Trim()
+
