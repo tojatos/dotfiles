@@ -54,7 +54,7 @@ function reposync {
                     $oldCommit = git rev-parse HEAD
                     $pullResult = git pull 2>&1
 
-                    if ($pullResult -match 'Already up to date.') {
+                    if ($pullResult -match 'up to date') {
                         $output += [PSCustomObject]@{ Message = "$repoPath is up to date."; Color = "Green" }
                     }
                     elseif ($pullResult -match 'Updating') {
