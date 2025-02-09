@@ -21,8 +21,8 @@ function Get-EnvVariable {
     return $default
 }
 # Import-Module posh-git
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Invoke-Expression
-$env:POSH_GIT_ENABLED = $true
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Invoke-Expression
+# $env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
 
@@ -189,13 +189,5 @@ function Reload-Profile {
     }
 }
 
+Invoke-Expression (&starship init powershell)
 
-
-
-# PowerShell parameter completion shim for the dotnet CLI
-# Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-#      param($commandName, $wordToComplete, $cursorPosition)
-#          dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-#             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-#          }
-#  }
