@@ -20,9 +20,6 @@ function Get-EnvVariable {
     Add-Content -Path $envPath -Value "`n$key=$default"
     return $default
 }
-# Import-Module posh-git
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\thecyberden.omp.json" | Invoke-Expression
-# $env:POSH_GIT_ENABLED = $true
 
 $documents_path = [Environment]::GetFolderPath("MyDocuments")
 
@@ -68,19 +65,20 @@ ${function:....} = { Set-Location ..\..\.. }
 ${function:.....} = { Set-Location ..\..\..\.. }
 ${function:......} = { Set-Location ..\..\..\..\.. }
 
-$aliases_to_remove = @('gcm', 'gp', 'gl')
+# remove conflicting aliases for functions and conflicts with coreutils (scoop install coreutils)
+$aliases_to_remove = @('gcm', 'gp', 'gl', 'rm', 'ls', 'mv', 'cp', 'cat', 'echo', 'pwd', 'clear')
 
 foreach ($a in $aliases_to_remove) {
 	Remove-Alias $a
 }
 
 function glsi { git ls-files -i -c --exclude-from=.gitignore }
-function g { git status }
+function g { git status -s }
 function ga { git add $args }
 function gs { git show $args }
 function gd { git diff $args }
 function gdc { git diff --cached $args }
-function gss { git status -s }
+function gss { git status }
 function gaa { git add -A }
 function gcm { git commit -m $args }
 function gp { git log --pretty --oneline --all --graph }
@@ -98,6 +96,11 @@ function gdiff { git diff --no-index $args }
 function a { .venv/Scripts/activate }
 
 function d { Set-Location "$documents_path/dokumenty" }
+function dotfiles { cd $HOME\.dotfiles }
+function ls {
+    eza --icons --group-directories-first --color=always $args
+}
+function ll { ls -al $args }
 function work {
     $workdir_path = Get-EnvVariable -key "WORKDIR_PATH" -default "C:\Scripts"
     if (-not (Test-Path $workdir_path)) {

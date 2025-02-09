@@ -10,14 +10,14 @@ https://github.com/ScoopInstaller/Scoop
 
 https://github.com/chrisant996/clink-flex-prompt
 
-```bash
+```fish
 scoop install clink
 scoop install clink-flex-prompt
 scoop install clink-completions
 ```
 
 ## Install Nerd Font
-```bash
+```fish
 scoop bucket add nerd-fonts
 scoop install Cascadia-Code
 ```
@@ -26,10 +26,20 @@ scoop install Cascadia-Code
 Font: Cascadia Code PL
 Font size: 24
 
-## Configure powerline
-```bash
-flexprompt configure
-```
+##
+Install everything needed for scoop:
 
-## Add UNIX commands to PATH
-Add `C:\Program Files\Git\usr\bin` (or other path to Windows installation) to PATH.
+```fish
+scoop bucket add extras
+scoop bucket add nerd-fonts
+
+scoop install clink
+scoop install clink-flex-prompt
+scoop install clink-completions
+
+scoop install Cascadia-Code
+scoop install exa # better ls
+scoop install signal
+scoop install coreutils # linux utils
+
+```
