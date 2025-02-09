@@ -1,11 +1,6 @@
 # No extra newlines
 add_newline = false
 
-# Powerlevel10k thin-like layout
-# format = """
-# $directory$git_branch$git_status$fill$cmd_duration
-# $character """
-
 format = """
 $directory$git_branch$git_status $env_var$python$nodejs$rust$golang$fill$cmd_duration
 $character """
