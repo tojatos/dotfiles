@@ -66,7 +66,7 @@ ${function:.....} = { Set-Location ..\..\..\.. }
 ${function:......} = { Set-Location ..\..\..\..\.. }
 
 # remove conflicting aliases for functions and conflicts with coreutils (scoop install coreutils)
-$aliases_to_remove = @('gcm', 'gp', 'gl', 'rm', 'ls', 'mv', 'cp', 'cat', 'echo', 'pwd', 'clear')
+$aliases_to_remove = @('gcm', 'gp', 'gl', 'rm', 'ls', 'mv', 'cp', 'cat', 'echo', 'clear')
 
 foreach ($a in $aliases_to_remove) {
 	Remove-Alias $a
