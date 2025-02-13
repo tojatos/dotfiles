@@ -62,10 +62,10 @@ Set-PSReadLineOption -EditMode Emacs # emacs bindings
 $env:LC_ALL = "C.UTF-8"
 
 # FZF bindings
-# if (Get-Command "fzf" -ErrorAction SilentlyContinue)
-# {
-# 	Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-# }
+if (Get-Command "fzf" -ErrorAction SilentlyContinue)
+{
+	Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+}
 
 ${function:Set-ParentLocation} = { Set-Location .. }; Set-Alias ".." Set-ParentLocation
 ${function:...} = { Set-Location ..\.. }
