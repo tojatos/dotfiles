@@ -5,22 +5,10 @@ $wt_settings_dir = realpath "$HOME\AppData\Local\Packages\Microsoft.WindowsTermi
 $config_dir = realpath "$HOME\.config"
 
 # Define the dotfiles repo path and commit cache file
-$dotfiles_repo = "$HOME\.dotfiles"
-$last_commit_file = "$dotfiles_repo\.last_commit"
+$last_commit_file = "$HOME\.dotfiles\.last_commit"
 
-# Get current commit hash
-$current_commit = (git -C $dotfiles_repo rev-parse HEAD 2>$null).Trim()
-
-# Read last recorded commit hash (trim newlines)
-if (Test-Path $last_commit_file) {
-    $last_commit = (Get-Content $last_commit_file -Raw).Trim()
-} else {
-    $last_commit = ""
-}
-
-# If the commit hasn't changed, exit early
-if ($current_commit -eq $last_commit) {
-    # Write-Host "`e[34m🔄 No changes in .dotfiles, skipping link script.`e[0m"
+# Check if dotfiles have been updated
+if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
     exit 0
 }
 
@@ -29,6 +17,7 @@ $files = @{
     "profile.ps1" = "$powershell_dir";
     "reposync.ps1" = "$powershell_dir";
     "utils.psm1" = "$powershell_dir";
+    "install_scoop_packages.ps1" = "$powershell_dir";
     "main.ahk" = "$startup_dir";
     "settings.json" = "$wt_settings_dir";
     "starship.toml" = "$config_dir";
@@ -105,7 +94,4 @@ if ($errors.Count -gt 0) {
     $errors -join "`n" | Write-Host
     exit 1
 }
-
-# Save the new commit hash without extra newlines
-Set-Content -Path $last_commit_file -Value $current_commit.Trim()
 

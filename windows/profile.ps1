@@ -40,6 +40,14 @@ if (Test-Path $reposync_path) {
     Write-Warning "reposync.ps1 not found"
 }
 
+# Install scoop packages if needed
+$scoop_install_script = "$PSScriptRoot\install_scoop_packages.ps1"
+if (Test-Path $scoop_install_script) {
+    & $scoop_install_script
+} else {
+    Write-Warning "install_scoop_packages.ps1 not found at $scoop_install_script"
+}
+
 # https://github.com/Schniz/fnm?tab=readme-ov-file#powershell
 fnm env --use-on-cd | Out-String | Invoke-Expression
 

@@ -25,5 +25,31 @@ function Remove-Alias ([string] $AliasName) {
 	}
 }
 
+function Test-DotfilesUpdate {
+    param (
+        [string]$CommitFile
+    )
+    
+    $dotfiles_repo = "$HOME\.dotfiles"
+    
+    # Get current commit hash
+    $current_commit = (git -C $dotfiles_repo rev-parse HEAD 2>$null).Trim()
+    
+    # Read last recorded commit hash (trim newlines)
+    if (Test-Path $CommitFile) {
+        $last_commit = (Get-Content $CommitFile -Raw).Trim()
+    } else {
+        $last_commit = ""
+    }
+    
+    # If the commit hasn't changed, return false
+    if ($current_commit -eq $last_commit) {
+        return $false
+    }
+    
+    # Save the new commit hash without extra newlines
+    Set-Content -Path $CommitFile -Value $current_commit.Trim()
+    return $true
+}
 
 Set-Alias realpath Resolve-PathForce
