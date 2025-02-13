@@ -47,7 +47,32 @@ function reposync {
                                 default { $output += [PSCustomObject]@{ Message = "$changeType  $filePath"; Color = "Yellow" } }
                             }
                         }
-                        # If there are local changes, skip pulling.
+                        # If there are local changes, skip pulling. Fetch instead
+                        git fetch
+                        # Get the current branch name
+                        $currentBranch = git rev-parse --abbrev-ref HEAD
+                        # Get the remote tracking branch
+                        $remoteBranch = git rev-parse --abbrev-ref "@{upstream}" 2>$null
+                        if ($remoteBranch) {
+                            # Get the number of commits behind and ahead
+                            $behindCount = git rev-list --count "$currentBranch..$remoteBranch" 2>$null
+                            $aheadCount = git rev-list --count "$remoteBranch..$currentBranch" 2>$null
+                            
+                            $status = ""
+                            if ($behindCount -gt 0) { $status += "$behindCount commit(s) behind" }
+                            if ($aheadCount -gt 0) { 
+                                if ($status) { $status += " and " }
+                                $status += "$aheadCount commit(s) ahead"
+                            }
+                            
+                            if ($status) {
+                                $output += [PSCustomObject]@{ Message = "Branch '$currentBranch' is $status of '$remoteBranch'"; Color = "Yellow" }
+                            }
+                            else {
+                                $output += [PSCustomObject]@{ Message = "Branch '$currentBranch' is up to date with '$remoteBranch'"; Color = "Green" }
+                            }
+                        }
+
                         return $output
                     }
 
