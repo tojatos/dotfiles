@@ -1,7 +1,7 @@
 Import-Module $PSScriptRoot\utils.psm1 -Force
 
 # Define commit cache file
-$last_commit_file = "$HOME\.dotfiles\.last_commit"
+$last_commit_file = "$HOME\.dotfiles\.last_scoop_commit"
 
 # Check if dotfiles have been updated
 if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
@@ -20,9 +20,9 @@ $packages = @(
     "clink",
     "clink-flex-prompt",
     "clink-completions",
-    "Cascadia-Code",
+    "FiraCode-NF",
     "eza",
-    "signal",
+    # "signal",
     "coreutils"
 )
 
@@ -97,4 +97,4 @@ Write-Host "`r`e[KInstallation result: $($statusIcons -join ' ')"
 if ($errors.Count -gt 0) {
     $errors -join "`n" | Write-Host
     exit 1
-} 
+}
