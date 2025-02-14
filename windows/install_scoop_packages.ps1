@@ -5,7 +5,7 @@ $last_commit_file = "$HOME\.dotfiles\.last_scoop_commit"
 
 # Check if dotfiles have been updated
 if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
-    Write-Host "`e[34m🔄 No changes in .dotfiles, skipping scoop package installation.`e[0m"
+    # Write-Host "`e[34m🔄 No changes in .dotfiles, skipping scoop package installation.`e[0m"
     exit 0
 }
 
