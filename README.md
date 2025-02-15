@@ -21,3 +21,6 @@ In the `install` folder.
 
 ### Setup scripts
 In the `setup` folder.
+
+## Windows
+`link.ps1` to link the profile, open a new `pwsh` session and everything *should* be set up.
