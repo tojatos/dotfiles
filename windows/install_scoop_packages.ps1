@@ -23,7 +23,8 @@ $packages = @(
     "FiraCode-NF",
     "eza",
     # "signal",
-    "coreutils"
+    "coreutils",
+    "starship"
 )
 
 # Animation frames for installation progress

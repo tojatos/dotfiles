@@ -200,11 +200,6 @@ function Reload-Profile {
     }
 }
 
-if (-Not (Get-Command starship -ErrorAction SilentlyContinue)) {
-    Write-Host "Starship not found. Installing via Winget..." -ForegroundColor Yellow
-    winget install --id Starship.Starship -e --source winget
-    refresh_path
-}
-
+refresh_path # in case anything got installed
 Invoke-Expression (&starship init powershell)
 
