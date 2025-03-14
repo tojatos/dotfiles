@@ -20,7 +20,7 @@ $files = @{
     "install_scoop_packages.ps1" = "$powershell_dir";
     "main.ahk" = "$startup_dir";
     "settings.json" = "$wt_settings_dir";
-    "starship.toml" = "$config_dir";
+    "../shared/starship.toml" = "$config_dir";
 }
 
 # Function to check if two paths are on the same drive
