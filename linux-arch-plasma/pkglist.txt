@@ -1,4 +1,4 @@
-the-silver-searcher
+the_silver_searcher
 fd
 flameshot
 fzf

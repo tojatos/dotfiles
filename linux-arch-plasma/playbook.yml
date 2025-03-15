@@ -1,0 +1,77 @@
+---
+- name: Configure Arch Linux with Plasma
+  hosts: localhost
+  tasks:
+    - name: Install system packages
+      become: yes
+      become_method: sudo
+      become_user: root
+      block:
+        - name: Install yay (AUR helper)
+          ansible.builtin.pacman:
+            name: yay
+            state: present
+
+        - name: Install packages
+          ansible.builtin.pacman:
+            name: "{{ packages }}"
+            state: present
+          vars:
+            packages:
+              - the_silver_searcher
+              - fd
+              - flameshot
+              - fzf
+              - hub
+              - ncdu
+              - tmux
+              - tree
+              - bat
+              - xclip
+              - xsel
+              - docker
+              - code
+              - starship
+              - obsidian
+              - syncthing
+              - eza
+
+        - name: Install AUR packages
+          ansible.builtin.command: yay -S --noconfirm {{ aur_packages }}
+          vars:
+            aur_packages:
+              - nordvpn-bin
+              - caprine-bin
+              - speedtest-cli
+
+        - name: Enable and start docker service
+          ansible.builtin.systemd:
+            name: docker
+            enabled: yes
+            state: started
+
+    - name: Configure user files
+      block:
+        - name: Create fish config directory
+          ansible.builtin.file:
+            path: "{{ ansible_user_dir }}/.config/fish/conf.d"
+            state: directory
+            mode: '0755'
+
+        - name: Link fish aliases
+          ansible.builtin.file:
+            src: "{{ playbook_dir }}/.aliases.fish"
+            dest: "{{ ansible_user_dir }}/.config/fish/conf.d/aliases.fish"
+            state: link
+
+        - name: Create nvim config directory
+          ansible.builtin.file:
+            path: "{{ ansible_user_dir }}/.config/nvim"
+            state: directory
+            mode: '0755'
+
+        - name: Link nvim config
+          ansible.builtin.file:
+            src: "{{ playbook_dir }}/nvim.conf"
+            dest: "{{ ansible_user_dir }}/.config/nvim/init.vim"
+            state: link

@@ -31,6 +31,14 @@ chsh # to /bin/fish
 ```
 Also init the starship in fish config.
 
+# GPG
+Apps like Vscode will request KDE wallet to store data like API keys or passwords securely.
+Setup it with a gpg key - generate it if you don't have one:
+```sh
+gpg --full-generate-key
+```
+
+
 # Vscode
 Configured vscode:
 1. Added VSCode Neovim extension
@@ -38,8 +46,9 @@ Configured vscode:
     ```json
     "keyboard.dispatch": "keyCode"
     ```
-
-Issues with fingerprint and caps in VSCode with Nvim extension.
+3. Added extensions:
+- RooCode
+- Astro
 
 # Ssh keys
 ## Generate
@@ -48,6 +57,10 @@ ssh-keygen -t ed25519 -C "tojatos@gmail.com"
 ```
 ## Set on github
 https://github.com/settings/keys
+
+# Hub setup
+Generate a PAT as a password for hub:
+https://github.com/settings/tokens
 
 # NordVPN
 https://wiki.archlinux.org/title/NordVPN
@@ -79,7 +92,7 @@ To enter the pairing mode:
 1. Press and hold the power button for 7 seconds, even after they are powered on
 1. When the blue light starts blinking, device is ready to be paired.
 
-# KDE Wallet
+<!-- # KDE Wallet
 It's used to store passwords etc.
 If not disabled, apps will keep requesting it, so disabling seems like a good choice.
 https://wiki.archlinux.org/title/KDE_Wallet#Disable_KWallet
@@ -87,6 +100,12 @@ https://wiki.archlinux.org/title/KDE_Wallet#Disable_KWallet
 # ~/.config/kwalletrc
 [Wallet]
 Enabled=false
-```
+``` -->
+
+# Caprine
+Install caprine-bin.
+If it tries to clone electron, abort and install the electron<number>-bin package first.
 
 # Syncthing and Obsidian
+Open up syncthing-tray and scan the QR code from syncthing-fork on the phone.
+Edit the sync address to tcp://ip in `nordvpn meshnet peer list`
