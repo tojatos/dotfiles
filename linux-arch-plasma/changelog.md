@@ -109,3 +109,4 @@ If it tries to clone electron, abort and install the electron<number>-bin packag
 # Syncthing and Obsidian
 Open up syncthing-tray and scan the QR code from syncthing-fork on the phone.
 Edit the sync address to tcp://ip in `nordvpn meshnet peer list`
+Login to https://syncthing.krzysztofruczkowski.pl/ and add this device.

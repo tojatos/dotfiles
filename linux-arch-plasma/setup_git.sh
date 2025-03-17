@@ -1,7 +1,9 @@
 #!/bin/bash -e
-
 USER_EMAIL=${USER_EMAIL:-"tojatos@gmail.com"}
 USER_NAME=${USER_NAME:-"tojatos"}
+
+git config --global user.email "$USER_EMAIL"
+git config --global user.name "$USER_NAME"
 
 version_gt() { test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"; }
 
@@ -41,5 +43,20 @@ git config --global rebase.autoStash true
 # Make git say less. Silence.
 git config --global push.verbose false
 
-git config --global user.email "$USER_EMAIL"
-git config --global user.name "$USER_NAME"
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --bool --global diff-so-fancy.stripLeadingSymbols false
+
+git config --global color.ui true
+
+git config --global color.diff-highlight.oldNormal    "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal    "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+
+git config --global color.diff.meta       "11"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+git config --global color.diff.new        "green bold"
+git config --global color.diff.whitespace "red reverse"
+

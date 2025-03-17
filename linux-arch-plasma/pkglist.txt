@@ -19,3 +19,4 @@ speedtest-cli
 signal-desktop
 caprine-bin
 eza
+diff-so-fancy
