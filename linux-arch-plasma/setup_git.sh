@@ -11,7 +11,8 @@ git_version=$(git --version | awk '{ print $3 }')
 pull_rebase_merges_minimal_version=2.0.0 # TODO: select a correct version, this is good enough for now
 
 # Disable submodule supportas I'm not using it for now
-# 
+git config --global status.submoduleSummary false
+ 
 # Display submodule changes in `git status`
 # git config --global status.submoduleSummary true
 
