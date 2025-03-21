@@ -31,7 +31,7 @@ staged = "[ +${count} ](bold green)"
 renamed = "[ »${count} ](bold cyan)"
 deleted = "[ ✘${count} ](bold red)"
 style = ""
-format = "$conflicted$staged$modified$deleted$renamed$untracked$stashed$ahead$behind$diverged"
+format = "$all_status$ahead_behind"
 disabled = false
 
 # Dotted separator between git info and elapsed time

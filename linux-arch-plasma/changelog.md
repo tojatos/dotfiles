@@ -17,6 +17,27 @@ Login to:
 ./install_packages.sh pkglist.txt
 ```
 
+# Setup Nvidia graphic card
+If using an NVIDIA GPU, make sure you're using the proper drivers:
+## Nvidia
+### EndeavourOS
+https://discovery.endeavouros.com/category/nvidia
+https://discovery.endeavouros.com/nvidia/nvidia-optimus-notebooks-hybrid-graphics/2021/03/
+Install the `nvidia-inst` package and run it, it will take care of it :)
+For dual GPU setups, check if proper is installed:
+```sh
+glxinfo | grep "OpenGL renderer string"
+```
+
+### Other
+This may not work with old graphic cards.
+```sh
+sudo pacman -S nvidia nvidia-utils
+```
+## AMD
+For AMD the package to install would be `xf86-video-amdgpu`.
+It is important to check for necessary drivers.
+
 # Caps lock remap
 Navigate to System Settings → Input Devices → Keyboard → Key Bindings.
 
@@ -72,8 +93,9 @@ reboot
 ```sh
 nordvpn login
 nordvpn connect
-nordvpn set autoconnect on
+nordvpn set autoconnect on Poland
 nordvpn set killswitch on
+nordvpn set analytics off
 nordvpn set mesh on
 nordvpn meshnet set nick $HOSTNAME
 ```
@@ -102,11 +124,37 @@ https://wiki.archlinux.org/title/KDE_Wallet#Disable_KWallet
 Enabled=false
 ``` -->
 
-# Caprine
+# Caprine (FB Messenger)
 Install caprine-bin.
 If it tries to clone electron, abort and install the electron<number>-bin package first.
+
+UPDATE: actually, this app sucks and probably is not worth installing.
 
 # Syncthing and Obsidian
 Open up syncthing-tray and scan the QR code from syncthing-fork on the phone.
 Edit the sync address to tcp://ip in `nordvpn meshnet peer list`
 Login to https://syncthing.krzysztofruczkowski.pl/ and add this device.
+
+# Microphone
+Right click on the sound icon -> Configure audio devices -> Internal Microphone -> Change port to Microphone (unplugged)
+
+# Matrix
+Install neochat.
+
+# KWallet
+It keeps popping up and disabling wifi on start. Install kwallet-pam and the problem goes away (make sure the password to the wallet is the same as the user's password).
+kwalletmanager could be useful too to see stored secrets.
+#TODO: it is not working yet, setup_kwallet_luks as well
+
+# Disk usage
+Tools:
+- baobab
+- filelight.
+
+# Blocked from sudo?
+```sh
+su root
+faillock --user tojatos --reset
+nvim /etc/security/faillock.conf # increase deny, uncomment audit, consider reducing unlock_time
+```
+
