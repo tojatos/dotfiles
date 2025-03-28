@@ -144,7 +144,7 @@ Install neochat.
 # KWallet
 It keeps popping up and disabling wifi on start. Install kwallet-pam and the problem goes away (make sure the password to the wallet is the same as the user's password).
 kwalletmanager could be useful too to see stored secrets.
-#TODO: it is not working yet, setup_kwallet_luks as well
+#TODO: it is not working yet, setup_kwallet_luks as well is not working - creating a wallet with empty bluefish password and setting it as the default wallet is an ugly workaround, but should be fine on LUKS
 
 # Disk usage
 Tools:
@@ -158,3 +158,25 @@ faillock --user tojatos --reset
 nvim /etc/security/faillock.conf # increase deny, uncomment audit, consider reducing unlock_time
 ```
 
+# Docker setup
+```sh
+# As current user
+sudo usermod -aG docker $USER
+```
+
+
+# DNS stopped working
+Turned off avahi and enabled systemd-resolved
+```sh
+# Checking what is running
+ps aux | grep -E "mdns|avahi|resolve"
+```
+```sh
+# Disable avahi
+systemctl disable --now avahi-daemon.socket
+systemctl disable --now avahi-daemon
+# Enable systemd-resolved
+systemctl enable --now systemd-resolved
+
+resolvectl status
+```
