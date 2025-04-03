@@ -1,0 +1,11 @@
+---
+- name: Read brew packages from file
+  command: cat {{ playbook_dir }}/../brew_packages.txt
+  register: brew_packages_content
+  changed_when: false
+
+- name: Install brew packages
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ brew_packages_content.stdout_lines }}"

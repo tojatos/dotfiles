@@ -3,3 +3,7 @@ bat
 fish
 zed
 ansible
+bat
+diff-so-fancy
+obsidian
+syncthing

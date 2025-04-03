@@ -1,0 +1,34 @@
+---
+- name: Ensure .ssh directory exists
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: '0700'
+
+- name: Check if GitHub SSH key exists
+  stat:
+    path: "{{ ansible_env.HOME }}/.ssh/id_ed25519_github"
+  register: ssh_key
+
+- name: Generate GitHub SSH key
+  command: >
+    ssh-keygen -t ed25519 -f {{ ansible_env.HOME }}/.ssh/id_ed25519_github -C "{{ ansible_env.USER }}@{{ ansible_hostname }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.ssh/id_ed25519_github"
+  when: not ssh_key.stat.exists
+
+- name: Set correct permissions for private key
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh/id_ed25519_github"
+    mode: '0600'
+  when: not ssh_key.stat.exists
+
+- name: Add SSH config entry for GitHub
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.ssh/config"
+    create: yes
+    mode: '0644'
+    block: |
+      Host github.com
+        IdentityFile ~/.ssh/id_ed25519_github
+        User git
