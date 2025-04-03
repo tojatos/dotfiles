@@ -1,2 +1,5 @@
 coreutils
 bat
+fish
+zed
+ansible

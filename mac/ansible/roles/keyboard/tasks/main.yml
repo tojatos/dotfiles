@@ -1,0 +1,44 @@
+---
+- name: Create keyboard remap script directory
+  file:
+    path: "{{ ansible_env.HOME }}/bin"
+    state: directory
+    mode: '0755'
+
+- name: Create keyboard remap script
+  copy:
+    dest: "{{ ansible_env.HOME }}/bin/remap_capslock.sh"
+    content: |
+      #!/bin/bash
+      hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000029}]}'
+    mode: '0755'
+
+- name: Create LaunchAgent directory
+  file:
+    path: "{{ ansible_env.HOME }}/Library/LaunchAgents"
+    state: directory
+    mode: '0755'
+
+- name: Install LaunchAgent for keyboard remapping
+  copy:
+    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/com.user.keyboard-remap.plist"
+    content: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>com.user.keyboard-remap</string>
+          <key>ProgramArguments</key>
+          <array>
+              <string>{{ ansible_env.HOME }}/bin/remap_capslock.sh</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    mode: '0644'
+
+- name: Load LaunchAgent
+  command: launchctl load -w {{ ansible_env.HOME }}/Library/LaunchAgents/com.user.keyboard-remap.plist
+  ignore_errors: yes
