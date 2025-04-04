@@ -1,0 +1,19 @@
+---
+- name: Create starship config directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+    mode: '0755'
+
+- name: Copy starship.toml from shared
+  copy:
+    src: "{{ playbook_dir }}/../../shared/starship.toml"
+    dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+    mode: '0644'
+
+- name: Add starship init to fish config
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.config/fish/config.fish"
+    line: "starship init fish | source"
+    create: yes
+    mode: '0644'

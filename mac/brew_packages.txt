@@ -7,3 +7,6 @@ bat
 diff-so-fancy
 obsidian
 syncthing
+starship
+hub
+font-hack-nerd-font
