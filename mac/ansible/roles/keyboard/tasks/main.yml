@@ -39,6 +39,13 @@
       </plist>
     mode: '0644'
 
+- name: Check if LaunchAgent is loaded
+  command: launchctl list com.user.keyboard-remap
+  register: launchagent_check
+  ignore_errors: yes
+  changed_when: false
+
 - name: Load LaunchAgent
   command: launchctl load -w {{ ansible_env.HOME }}/Library/LaunchAgents/com.user.keyboard-remap.plist
+  when: launchagent_check.rc != 0
   ignore_errors: yes

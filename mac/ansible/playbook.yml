@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   roles:
+    - fish
     - keyboard
     - homebrew
     - ssh

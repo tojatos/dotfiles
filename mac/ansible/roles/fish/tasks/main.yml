@@ -1,0 +1,49 @@
+---
+- name: Install fish shell
+  community.general.homebrew:
+    name: fish
+    state: present
+
+- name: Create fish config directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/fish"
+    state: directory
+    mode: '0755'
+
+- name: Copy aliases file
+  copy:
+    src: "{{ playbook_dir }}/../.aliases.fish"
+    dest: "{{ ansible_env.HOME }}/.config/fish/aliases.fish"
+    mode: '0644'
+
+- name: Add source aliases to fish config
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.config/fish/config.fish"
+    line: "source ~/.config/fish/aliases.fish"
+    create: yes
+    mode: '0644'
+
+- name: Get fish shell path
+  command: which fish
+  register: fish_path
+  changed_when: false
+
+- name: Add fish to /etc/shells
+  ansible.builtin.lineinfile:
+    path: /etc/shells
+    line: "{{ fish_path.stdout }}"
+    state: present
+  become: true
+  become_method: sudo
+
+- name: Get current shell
+  command: dscl . -read ~/ UserShell
+  register: current_shell
+  changed_when: false
+
+- name: Change default shell to fish
+  command: chsh -s {{ fish_path.stdout }} {{ ansible_env.USER }}
+  register: shell_change
+  changed_when: shell_change.rc == 0
+  failed_when: shell_change.rc != 0
+  when: fish_path.stdout not in current_shell.stdout

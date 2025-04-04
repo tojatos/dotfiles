@@ -4,6 +4,12 @@ This directory contains configuration and automation for setting up a macOS syst
 
 ## Features
 
+### Fish Shell Configuration
+- Installs Fish shell using Homebrew
+- Sets Fish as the default shell
+- Configures shell aliases and functions automatically
+- Sets up proper config directory structure
+
 ### Keyboard Customization
 - Remaps Caps Lock key to Escape for improved productivity (especially useful for Vim users)
 - Automatically applies the remapping on system startup using LaunchAgent
@@ -43,9 +49,12 @@ ansible-playbook ansible/playbook.yml
 │       ├── homebrew/         # Role for package management
 │       │   └── tasks/
 │       │       └── main.yml  # Package installation tasks
-│       └── ssh/             # Role for SSH key management
+│       ├── ssh/             # Role for SSH key management
+│       │   └── tasks/
+│       │       └── main.yml  # SSH key generation tasks
+│       └── fish/            # Role for Fish shell configuration
 │           └── tasks/
-│               └── main.yml  # SSH key generation tasks
+│               └── main.yml  # Fish shell setup tasks
 └── brew_packages.txt         # List of Homebrew packages
 ```
 
@@ -62,6 +71,9 @@ The Ansible playbook performs the following tasks:
    - Creates ~/.ssh directory with proper permissions
    - Generates an ED25519 SSH key if it doesn't exist
    - Configures SSH to use the correct key for GitHub
+7. Installs Fish shell and sets it as the default shell:
+   - Configures aliases and functions
+   - Sets up the proper config directory structure
 
 # Bitwarden
 TouchID integration source: https://bitwarden.com/help/biometrics/#tab-browser-extension-2vCWb5iFg4OqKS0B2xXpqW
