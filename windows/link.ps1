@@ -14,18 +14,18 @@ if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
 
 # Define files for linking
 $files = @{
-    "profile.ps1" = "$powershell_dir";
-    "reposync.ps1" = "$powershell_dir";
-    "utils.psm1" = "$powershell_dir";
+    "profile.ps1"                = "$powershell_dir";
+    "reposync.ps1"               = "$powershell_dir";
+    "utils.psm1"                 = "$powershell_dir";
     "install_scoop_packages.ps1" = "$powershell_dir";
-    "main.ahk" = "$startup_dir";
-    "settings.json" = "$wt_settings_dir";
-    "../shared/starship.toml" = "$config_dir";
+    "main.ahk"                   = "$startup_dir";
+    "settings.json"              = "$wt_settings_dir";
+    "..\shared\starship.toml"    = "$config_dir";
 }
 
 # Function to check if two paths are on the same drive
 function Is-SameDrive($path1, $path2) {
-    return ($path1.Substring(0,2) -eq $path2.Substring(0,2))
+    return ($path1.Substring(0, 2) -eq $path2.Substring(0, 2))
 }
 
 # Define animation frames
@@ -45,7 +45,8 @@ for ($i = 0; $i -lt 10; $i++) {
 # Process files
 foreach ($file in $files.Keys) {
     $source = "$HOME\.dotfiles\windows\$file"
-    $target = "$($files[$file])\$file"
+    $filename = Split-Path -Leaf $file
+    $target = "$($files[$file])\$filename"
 
     if (!(Test-Path $source)) {
         $statusIcons += "`e[33m⚠️`e[0m"  # Yellow warning (skipped)
@@ -69,13 +70,15 @@ foreach ($file in $files.Keys) {
     # Create the appropriate link
     if (Is-SameDrive $source $target) {
         $success = fsutil hardlink create $target $source 2>&1
-    } else {
+    }
+    else {
         $success = New-Item -ItemType SymbolicLink -Path $target -Target $source -ErrorAction SilentlyContinue 2>&1
     }
 
     if ($?) {
         $statusIcons += "`e[32m✅`e[0m"  # Green (successfully linked)
-    } else {
+    }
+    else {
         $statusIcons += "`e[31m❌`e[0m"  # Red (failed)
         $errors += "❌ Error linking $file → $target : $success"
     }
