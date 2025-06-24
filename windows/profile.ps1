@@ -57,11 +57,6 @@ Set-Alias take New-And-Enter-Directory
 # utf-8 characters in git
 $env:LC_ALL = "C.UTF-8"
 
-# FZF bindings
-if (Get-Command "fzf" -ErrorAction SilentlyContinue)
-{
-	Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-}
 
 ${function:Set-ParentLocation} = { Set-Location .. }; Set-Alias ".." Set-ParentLocation
 ${function:...} = { Set-Location ..\.. }
@@ -203,3 +198,8 @@ Set-PSReadLineOption -EditMode Emacs # emacs bindings, invoke first
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete # better tab completion, needs to be invoked after emacs bindings
 Set-PSReadlineOption -BellStyle None # disable annoying beeps
 
+# FZF bindings
+if (Get-Command "fzf" -ErrorAction SilentlyContinue)
+{
+	Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+}
