@@ -54,10 +54,6 @@ fnm env --use-on-cd | Out-String | Invoke-Expression
 function New-And-Enter-Directory([String] $path) { New-Item $path -ItemType Directory -ErrorAction SilentlyContinue | Out-Null; Set-Location $path}
 Set-Alias take New-And-Enter-Directory
 
-Set-PSReadlineKeyHandler -Key Tab -Function Complete # bash like tab completion
-Set-PSReadlineOption -BellStyle None # disable annoying beeps
-Set-PSReadLineOption -EditMode Emacs # emacs bindings
-
 # utf-8 characters in git
 $env:LC_ALL = "C.UTF-8"
 
@@ -202,4 +198,8 @@ function Reload-Profile {
 
 refresh_path # in case anything got installed
 Invoke-Expression (&starship init powershell)
+
+Set-PSReadLineOption -EditMode Emacs # emacs bindings, invoke first
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete # better tab completion, needs to be invoked after emacs bindings
+Set-PSReadlineOption -BellStyle None # disable annoying beeps
 

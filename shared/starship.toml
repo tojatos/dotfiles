@@ -56,7 +56,7 @@ vicmd_symbol = "[❮](bold blue)"
 symbol = " "  # Python icon
 style = "bold yellow"
 format = "[ $symbol$version ]($style)"
-python_binary = ["python3", "python"]
+python_binary = ["python"]
 
 # Node.js version (if in a Node.js project)
 [nodejs]
