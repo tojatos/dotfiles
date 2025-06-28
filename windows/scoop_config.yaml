@@ -4,9 +4,7 @@ buckets:
 packages:
   - Cascadia-Code
   - FiraCode-NF
-  # - clink
-  # - clink-completions
-  # - clink-flex-prompt
+  - bat
   - coreutils
   - diff-so-fancy
   - eza

@@ -8,7 +8,6 @@ $last_commit_file = "$HOME\.dotfiles\.last_commit"
 
 # Check if dotfiles have been updated
 if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
-    echo "Dotfiles update test failed, to force link: rm $last_commit_file"
     exit 0
 }
 
