@@ -1,0 +1,29 @@
+buckets:
+  - extras
+  - nerd-fonts
+packages:
+  - Cascadia-Code
+  - FiraCode-NF
+  # - clink
+  # - clink-completions
+  # - clink-flex-prompt
+  - coreutils
+  - diff-so-fancy
+  - eza
+  - fd
+  - fnm
+  - fzf
+  - nvm
+  - ripgrep
+  - scoop-search
+  - starship
+  - yq
+  - 7zip
+  - bulk-crap-uninstaller
+  - f.lux
+  - neovim
+  - notepadplusplus
+  - vscode
+  - obsidian
+  - git
+  - autohotkey
