@@ -43,7 +43,7 @@ if (Test-Path $reposync_path) {
 # Install scoop packages if needed
 $scoop_install_script = "$PSScriptRoot\install_scoop_packages.ps1"
 if (Test-Path $scoop_install_script) {
-    & $scoop_install_script
+    & $scoop_install_script -DotfilesWindowsRoot $HOME\.dotfiles\windows
 } else {
     Write-Warning "install_scoop_packages.ps1 not found at $scoop_install_script"
 }

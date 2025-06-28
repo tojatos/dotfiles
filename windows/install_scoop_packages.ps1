@@ -1,11 +1,15 @@
 param(
-    [switch]$Force
+    [switch]$Force,
+    [string]$DotfilesWindowsRoot
 )
 
-Import-Module $PSScriptRoot\utils.psm1 -Force
+$ScriptRoot = $DotfilesWindowsRoot ?? $PSScriptRoot ?? (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
-# Load buckets and packages from YAML config
-$configPath = Join-Path $PSScriptRoot 'scoop_config.yaml'
+Import-Module "$PSScriptRoot\utils.psm1" -Force
+
+# Load buckets and packages from YAML config 
+$configPath = Join-Path $ScriptRoot 'scoop_config.yaml'
+
 if (!(Test-Path $configPath)) {
     Write-Host "`e[31m❌ scoop_config.yaml not found!`e[0m"
     exit 1
