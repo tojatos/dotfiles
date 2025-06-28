@@ -3,12 +3,12 @@ $startup_dir = realpath "~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 $powershell_dir = realpath $(Split-Path -parent $profile)
 $wt_settings_dir = realpath "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
 $config_dir = realpath "$HOME\.config"
-
 # Define the dotfiles repo path and commit cache file
 $last_commit_file = "$HOME\.dotfiles\.last_commit"
 
 # Check if dotfiles have been updated
 if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
+    echo "Dotfiles update test failed, to force link: rm $last_commit_file"
     exit 0
 }
 

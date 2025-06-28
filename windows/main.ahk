@@ -1,31 +1,23 @@
-#NoEnv
-SendMode Input
-SetWorkingDir C:\Users\%A_UserName%
-#SingleInstance force
+SendMode("Input")
+SetWorkingDir("C:\\Users\\" A_UserName)
+#SingleInstance Force
 
-#Enter::Run, *runas wt.exe
-#b::Run, firefox.exe
-#q::WinClose, A
+#HotIf
+#Enter::Run('*runas wt.exe')
+#b::Run('firefox.exe')
+#q::WinClose('A')
+#HotIf
 
-#SingleInstance force
+#SingleInstance Force
 
 ; Paste from clipboard script
 ; Define the hotkey for Shift + Insert
-+Insert::
-{
-    ; Retrieve the current clipboard content
-    ClipContent := Clipboard
-
-    ; Check if clipboard contains text
-    if (ClipContent)
-    {
-        ; Send the clipboard contents as keystrokes
-        SendRaw, %ClipContent%
-    }
-    else
-    {
-        ; If clipboard is empty, send a message
-        MsgBox, Clipboard is empty!
++Insert:: {
+    ClipContent := A_Clipboard
+    if ClipContent {
+        SendText(ClipContent)
+    } else {
+        MsgBox('Clipboard is empty!')
     }
 }
 return

@@ -5,7 +5,8 @@ $last_commit_file = "$HOME\.dotfiles\.last_scoop_commit"
 
 # Check if dotfiles have been updated
 if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
-    # Write-Host "`e[34m🔄 No changes in .dotfiles, skipping scoop package installation.`e[0m"
+    Write-Host "`e[34m🔄 No changes in .dotfiles, skipping scoop package installation.`e[0m"
+    Write-Host "To force scoop package installation: rm $last_commit_file"
     exit 0
 }
 
@@ -17,14 +18,28 @@ $buckets = @(
 
 # List of scoop packages to install
 $packages = @(
-    "clink",
-    "clink-flex-prompt",
-    "clink-completions",
+    "Cascadia-Code",
     "FiraCode-NF",
-    "eza",
-    # "signal",
+    # "clink",
+    # "clink-completions",
+    # "clink-flex-prompt",
     "coreutils",
+    "diff-so-fancy",
+    "eza",
+    "fd",
+    "fnm", # node version manager, probably required by nvm
+    "fzf",
+    "nvm",
+    "ripgrep",
+    "scoop-search",
     "starship"
+    "yq",
+
+    "7zip",
+    "bulk-crap-uninstaller",
+    "f.lux",
+    "neovim",
+    "notepadplusplus"
 )
 
 # Animation frames for installation progress
