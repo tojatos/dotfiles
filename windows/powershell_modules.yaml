@@ -1,0 +1,4 @@
+modules:
+  - name: PSFzf # Fuzzy finder integration for PowerShell, enables fast file and command search.
+  - name: LSUClient # updates for Lenovo computers https://github.com/jantari/LSUClient
+

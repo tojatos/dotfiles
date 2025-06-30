@@ -1,2 +1,3 @@
 # Ignore PowerShell script timestamps
 timestamps/
+.last_scoop_config_mtime

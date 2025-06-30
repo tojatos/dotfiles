@@ -35,11 +35,11 @@ if (!(Verify-Elevated)) {
 }
 
 ### Chocolatey
-Write-Host "Installing Chocolatey..." -ForegroundColor "Yellow"
-if ($null -eq (which cinst)) {
-    Invoke-Expression (new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')
-    Refresh-Environment
-    choco feature enable -n=allowGlobalConfirmation
-} else {
-    Write-Host "Chocolatey already installed" -ForegroundColor "Green"
-}
+# Write-Host "Installing Chocolatey..." -ForegroundColor "Yellow"
+# if ($null -eq (which cinst)) {
+#     Invoke-Expression (new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')
+#     Refresh-Environment
+#     choco feature enable -n=allowGlobalConfirmation
+# } else {
+#     Write-Host "Chocolatey already installed" -ForegroundColor "Green"
+# }
