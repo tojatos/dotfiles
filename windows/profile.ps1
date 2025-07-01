@@ -115,6 +115,7 @@ function ssh-copy-id { cat ~/.ssh/id_rsa.pub | ssh $args "cat >> ~/.ssh/authoriz
 function to_mp4 { ffmpeg -i $args "$([io.path]::GetFileNameWithoutExtension($args)).mp4" }
 function refresh_path { $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") }
 function edit_profile { vim ~/.dotfiles/windows/profile.ps1 }
+function reboot { shutdown /r /t 0 }
 
 function tif_to_pdf {
     param (

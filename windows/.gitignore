@@ -1,3 +1,8 @@
 # Ignore PowerShell script timestamps
 timestamps/
 .last_scoop_config_mtime
+
+# Ignore Syncthing data and config directories
+syncthing/
+caddy/data
+caddy/config

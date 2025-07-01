@@ -1,0 +1,3 @@
+syncthing.localhost {
+    reverse_proxy syncthing:8384
+} 
