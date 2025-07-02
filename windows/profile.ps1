@@ -194,6 +194,7 @@ function Reload-Profile {
 
 refresh_path # in case anything got installed
 Invoke-Expression (&starship init powershell)
+(& volta completions powershell) | Out-String | Invoke-Expression
 
 Set-PSReadLineOption -EditMode Emacs # emacs bindings, invoke first
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete # better tab completion, needs to be invoked after emacs bindings
