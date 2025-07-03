@@ -8,8 +8,12 @@ $last_commit_file = "$HOME\.dotfiles\.last_commit"
 
 # Check if dotfiles have been updated
 if (-not (Test-DotfilesUpdate -CommitFile $last_commit_file)) {
+    Write-Host "`e[90mLinking skipped - no new changes detected. To force run:`e[0m"
+    Write-Host "`e[36mrm $last_commit_file`e[0m"
     exit 0
 }
+
+Write-Host "`e[90mStarting dotfiles linking process...`e[0m"
 
 # Define files for linking
 $files = @{

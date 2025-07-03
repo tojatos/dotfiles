@@ -49,7 +49,9 @@ if (Test-Path $scoop_install_script) {
 }
 
 # https://github.com/Schniz/fnm?tab=readme-ov-file#powershell
-fnm env --use-on-cd | Out-String | Invoke-Expression
+if (Get-Command "fnm" -ErrorAction SilentlyContinue) {
+    fnm env --use-on-cd | Out-String | Invoke-Expression
+}
 
 function New-And-Enter-Directory([String] $path) { New-Item $path -ItemType Directory -ErrorAction SilentlyContinue | Out-Null; Set-Location $path}
 Set-Alias take New-And-Enter-Directory
@@ -193,8 +195,12 @@ function Reload-Profile {
 }
 
 refresh_path # in case anything got installed
-Invoke-Expression (&starship init powershell)
-(& volta completions powershell) | Out-String | Invoke-Expression
+if (Get-Command "starship" -ErrorAction SilentlyContinue) {
+    Invoke-Expression (&starship init powershell)
+}
+if (Get-Command "volta" -ErrorAction SilentlyContinue) {
+    (& volta completions powershell) | Out-String | Invoke-Expression
+}
 
 Set-PSReadLineOption -EditMode Emacs # emacs bindings, invoke first
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete # better tab completion, needs to be invoked after emacs bindings
