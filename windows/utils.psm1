@@ -52,4 +52,88 @@ function Test-DotfilesUpdate {
     return $true
 }
 
+function Get-FileFingerprint {
+    param (
+        [string]$FilePath
+    )
+    
+    if (-not (Test-Path $FilePath)) {
+        return $null
+    }
+    
+    $hash = Get-FileHash -Path $FilePath -Algorithm SHA256
+    return $hash.Hash
+}
+
+function Get-FingerprintFileName {
+    param (
+        [string]$File
+    )
+    
+    # Handle relative paths by extracting just the filename
+    $filename = Split-Path -Leaf $File
+    return "$filename.fingerprint"
+}
+
+function Get-FilesNeedingUpdate {
+    param (
+        [hashtable]$Files,
+        [string]$FingerprintDir
+    )
+    
+    # Ensure fingerprint directory exists
+    if (-not (Test-Path $FingerprintDir)) {
+        New-Item -ItemType Directory -Path $FingerprintDir -Force | Out-Null
+    }
+    
+    $filesToUpdate = @()
+    
+    foreach ($file in $Files.Keys) {
+        $source = "$HOME\.dotfiles\windows\$file"
+        $currentFingerprint = Get-FileFingerprint $source
+        
+        if ($currentFingerprint -eq $null) {
+            continue  # Skip files that don't exist
+        }
+        
+        # Get cached fingerprint from individual file
+        $fingerprintFile = Join-Path $FingerprintDir (Get-FingerprintFileName $file)
+        $cachedFingerprint = $null
+        
+        if (Test-Path $fingerprintFile) {
+            $cachedFingerprint = (Get-Content $fingerprintFile -Raw).Trim()
+        }
+        
+        if ($currentFingerprint -ne $cachedFingerprint) {
+            $filesToUpdate += $file
+        }
+    }
+    
+    return $filesToUpdate
+}
+
+function Update-FingerprintCache {
+    param (
+        [hashtable]$Files,
+        [string]$FingerprintDir,
+        [array]$ProcessedFiles
+    )
+    
+    # Ensure fingerprint directory exists
+    if (-not (Test-Path $FingerprintDir)) {
+        New-Item -ItemType Directory -Path $FingerprintDir -Force | Out-Null
+    }
+    
+    # Update fingerprints for processed files
+    foreach ($file in $ProcessedFiles) {
+        $source = "$HOME\.dotfiles\windows\$file"
+        $fingerprint = Get-FileFingerprint $source
+        
+        if ($fingerprint -ne $null) {
+            $fingerprintFile = Join-Path $FingerprintDir (Get-FingerprintFileName $file)
+            Set-Content -Path $fingerprintFile -Value $fingerprint
+        }
+    }
+}
+
 Set-Alias realpath Resolve-PathForce
